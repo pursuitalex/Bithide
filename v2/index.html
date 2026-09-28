@@ -515,7 +515,7 @@ body.intro-lock{overflow:hidden}
 .panel .two{color:#fff}
 .panel .two .t2{color:#cfe0ff}
 /* reeded-glass logo on top of the security panel, fading into the panel gradient */
-.panel-bg{position:absolute;left:0;top:0;width:100%;height:clamp(620px,64vw,1100px);object-fit:cover;object-position:100% 25%;opacity:.72;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 30%,rgba(0,0,0,.55) 58%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 30%,rgba(0,0,0,.55) 58%,transparent 100%)}
+.panel-bg{position:absolute;left:0;top:0;width:100%;height:clamp(620px,64vw,1100px);object-fit:cover;object-position:100% 25%;opacity:.36;filter:saturate(.75);pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 30%,rgba(0,0,0,.55) 58%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 22%,#000 78%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 0%,#000 30%,rgba(0,0,0,.55) 58%,transparent 100%),linear-gradient(90deg,transparent 0%,#000 22%,#000 78%,transparent 100%);mask-composite:intersect}
 #security .shead .lead,#security .shead .two{text-shadow:0 2px 24px rgba(18,52,150,.45)}
 .panel .glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
 .panel .g1{width:50vw;height:50vw;left:-15vw;top:-20vw;background:rgba(255,255,255,.22)}
@@ -881,16 +881,36 @@ body.intro-lock{overflow:hidden}
 
 /* ================= FOOTER ================= */
 .endcap{position:relative}
-.endcap .final{position:sticky;top:0;z-index:0}
+.endcap .final{position:relative}
 .endcap .final .final-in{will-change:transform}
-footer{position:relative;z-index:2;margin-top:clamp(40px,6vh,80px);padding:40px 0 clamp(20px,3vw,40px);overflow:hidden}
-footer .card{background:var(--white);border-radius:var(--r-xl);padding:40px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px}
-footer .card img{height:30px;width:auto}
-footer .card .micro{color:var(--ink-3)}
-footer .card nav{display:flex;flex-direction:column;gap:8px;margin-top:14px}
-footer .card nav a{font:500 22px/1.3 var(--font);letter-spacing:-.03em}
-footer .card nav a::before{content:"• ";color:var(--acc-soft)}
-footer .card nav a:hover{color:var(--acc)}
+.ft{margin:clamp(20px,3vw,40px) 20px 20px}
+.ft-card{background:var(--white);border-radius:var(--r-frame);padding:clamp(36px,4.4vw,72px) clamp(28px,4.4vw,72px) clamp(28px,3vw,44px);box-shadow:inset 0 0 0 1px var(--line)}
+.ft-top{display:grid;grid-template-columns:minmax(0,6.6fr) minmax(0,1.6fr) minmax(0,1.9fr) minmax(0,3fr);gap:clamp(24px,3vw,48px)}
+.ft h3{font:600 19px/1.2 var(--font);letter-spacing:-.03em;color:var(--ink)}
+.ft ul{list-style:none;margin:18px 0 0;padding:0}
+.ft li + li{margin-top:9px}
+.ft li a,.ft-mail{font:500 15px/1.35 var(--font);letter-spacing:-.01em;color:var(--ink-2);transition:color .2s}
+.ft li a:hover,.ft-mail:hover{color:var(--acc)}
+.ft-feat ul{column-count:2;column-gap:28px}
+.ft-feat li{break-inside:avoid}
+.ft-brand{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.ft-logo{display:flex;align-items:center;gap:14px}
+.ft-logo img{height:34px;width:auto}
+.ft-logo span{white-space:nowrap;padding-left:14px;border-left:1.5px solid var(--line);font:600 13px/1.2 var(--font);letter-spacing:-.01em;color:var(--ink-2)}
+.ft-mail{font-weight:600;color:var(--ink)}
+.ft-soc{display:flex;gap:8px}
+.ft-soc a,.ft-ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--tint);color:var(--acc);transition:background .25s,color .25s,transform .25s var(--ease)}
+.ft-soc a:hover,.ft-ic:hover{background:var(--acc);color:#fff;transform:translateY(-2px)}
+.ft-soc svg,.ft-ic svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ft-cta{display:flex;align-items:center;gap:8px}
+.ft-ic{width:48px;height:48px}
+.ft-legal{margin-top:0!important}
+.ft-bot{display:grid;grid-template-columns:minmax(0,10.1fr) minmax(0,3fr);gap:clamp(24px,3vw,48px);margin-top:clamp(36px,4vw,56px);padding-top:clamp(24px,2.4vw,32px);border-top:1px solid var(--line)}
+.ft-bot p{font:400 13px/1.55 var(--font);color:var(--ink-3)}
+.ft-bot p + p{margin-top:10px}
+.ft-addr p:first-child{font-weight:600;color:var(--ink-2)}
+@media (max-width:1100px){.ft-top{grid-template-columns:1fr 1fr}.ft-feat{grid-column:1 / -1}.ft-brand{grid-column:1 / -1;order:-1}.ft-bot{grid-template-columns:1fr}}
+@media (max-width:860px){.ft{margin:16px 10px 10px}.ft-card{border-radius:26px}.ft-feat ul{column-count:1}}
 
 
 /* ================= additions ================= */
@@ -979,7 +999,7 @@ body{font-size:var(--fs-body)}
   .farrow{display:none}
 }
 @media (max-width:860px){
-  .panel-bg{opacity:.45;height:760px;object-position:80% 0}
+  .panel-bg{opacity:.24;height:760px;object-position:80% 0}
   .wrap{width:calc(100% - 32px)}
   .section{padding:90px 0}
   .nav{top:16px;left:16px;right:16px}
@@ -1004,7 +1024,7 @@ body{font-size:var(--fs-body)}
   .fcard{min-height:0;padding:20px}
   .fcard .txt,.fcard .tags{padding-top:12px}
   .statement{padding:0 20px}
-  .shead,.ba-cards,.nc-cards,.rows,.wl,.cost-duo,.final .final-in,footer .card{grid-template-columns:1fr}
+  .shead,.ba-cards,.nc-cards,.rows,.wl,.cost-duo,.final .final-in{grid-template-columns:1fr}
   .exec-cards,.gro-row{grid-template-columns:1fr}
   .gro-row > div{border-left:0;border-top:1px solid var(--line)}
   .gro-row > div:first-child{border-top:0}
@@ -1516,7 +1536,7 @@ body{font-size:var(--fs-body)}
   </div>
 </section>
 
-<!-- 15 FINAL CTA + 16 FOOTER: final CTA pins, footer slides up over it -->
+<!-- 15 FINAL CTA -->
 <div class="endcap">
 <section class="final" id="final" data-fbg="metal2">
   <img src="assets/final-metal-2.webp" alt="" loading="lazy" id="finalBg">
@@ -1555,17 +1575,37 @@ body{font-size:var(--fs-body)}
     </div>
   </div>
 </section>
+</div>
 
-<footer>
-  <div class="wrap">
-    <div class="card">
-      <div><img src="assets/logo-filled.svg" alt="BitHide" width="251" height="64"><p class="lead" style="margin-top:22px;max-width:22ch">Crypto Wallet Infrastructure for Business</p></div>
-      <div><span class="micro">Navigation</span><nav><a href="#revenue">Revenue</a><a href="#growth">Growth</a><a href="#security">Security</a><a href="#industries">Industries</a></nav></div>
-      <div style="display:flex;flex-direction:column;justify-content:space-between;gap:24px"><p class="lead muted">Non-Custodial · Self-Hosted · White Label</p><a class="btn arr" href="#" style="align-self:flex-start"><span class="roll"><span>Get a Demo</span><span aria-hidden="true">Get a Demo</span></span><i class="dot"><svg><use href="#arr"/></svg></i></a></div>
+<!-- 16 FOOTER -->
+<footer class="ft">
+  <div class="ft-card">
+    <div class="ft-top">
+      <div class="ft-col ft-feat"><h3>Features</h3><ul><li><a href="#">AML Crypto Check in Telegram</a></li><li><a href="#">Crypto Wallet for Business</a></li><li><a href="#">Crypto Payroll System</a></li><li><a href="#">Non-Custodial Crypto Wallet</a></li><li><a href="#">Crypto Payment Solutions</a></li><li><a href="#">White Label Crypto Wallet</a></li><li><a href="#">White Label Crypto Payment Gateway</a></li><li><a href="#">USDT Payment Gateway</a></li><li><a href="#">TRON Payment Gateway</a></li><li><a href="#">Ethereum Payment Gateway</a></li><li><a href="#">Crypto Payment Gateway Development</a></li><li><a href="#">Payment Gateway for Crypto Exchange</a></li><li><a href="#">Crypto Payment Gateway in Brazil</a></li><li><a href="#">Crypto Payment Gateway in India</a></li><li><a href="#">Crypto Payment Gateway in Georgia</a></li><li><a href="#">Crypto Payment Gateway in Singapore</a></li><li><a href="#">Crypto Payment Gateway in Hong Kong</a></li></ul></div>
+      <div class="ft-col"><h3>Developers</h3><ul><li><a href="#">API</a></li><li><a href="#">Payment Widget</a></li></ul></div>
+      <div class="ft-col"><h3>Blog</h3><ul><li><a href="#">Business</a></li><li><a href="#">Security</a></li><li><a href="#">Knowledge Base</a></li><li><a href="#">Inside BitHide</a></li><li><a href="#">Exclusive Materials</a></li></ul></div>
+      <div class="ft-brand">
+        <div class="ft-logo"><img src="assets/logo-filled.svg" alt="BitHide" width="251" height="64"><span>Secure Crypto<br>Wallet for Business</span></div>
+        <a class="ft-mail" href="mailto:sales@bithide.io">sales@bithide.io</a>
+        <div class="ft-soc">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9.5v8M6.5 6.5v.01M10.5 17.5v-4.5a2.5 2.5 0 0 1 5 0v4.5M10.5 9.5v8"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="4.5" width="15" height="15" rx="4.5"/><circle cx="12" cy="12" r="3.5"/><path d="M16.5 7.5v.01"/></svg></a><a href="#" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5h-1.8A2.7 2.7 0 0 0 10 8.2v10.3M8 11h6"/></svg></a><a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 5 3.8 11.3c-.6.2-.6 1.1 0 1.3l4 1.3 1.5 4.7c.2.6 1 .8 1.4.3l2.2-2.4 4 3c.5.4 1.2.1 1.3-.5L21 6c.1-.7-.5-1.2-1-1zM8 14l9-6.5"/></svg></a>
+        </div>
+        <div class="ft-cta">
+          <a class="btn arr" href="#" data-contact-open><span class="roll"><span>Contact Us</span><span aria-hidden="true">Contact Us</span></span><i class="dot"><svg><use href="#arr"/></svg></i></a>
+          <a class="ft-ic" href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 5 3.8 11.3c-.6.2-.6 1.1 0 1.3l4 1.3 1.5 4.7c.2.6 1 .8 1.4.3l2.2-2.4 4 3c.5.4 1.2.1 1.3-.5L21 6c.1-.7-.5-1.2-1-1zM8 14l9-6.5"/></svg></a><a class="ft-ic" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19l1.1-3.6A7.5 7.5 0 1 1 9 18.3z"/><path d="M9.5 9.2c0 2.6 2.7 5.3 5.3 5.3l1-1.1-1.7-1-.9.6a4 4 0 0 1-2.2-2.2l.6-.9-1-1.7z"/></svg></a>
+        </div>
+        <ul class="ft-legal"><li><a href="#">Privacy Notice</a></li><li><a href="#">Public Offer Agreement</a></li><li><a href="#">Our Addresses</a></li></ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-disc">
+        <p>Legal Disclaimer: BitHide is a software provider and does not offer financial services. We provide self-hosted, non-custodial software; all assets and private keys remain under the exclusive control of the Client. BitHide has no access to client funds and keys.</p>
+        <p>Our software is not available to entities incorporated in or serving the USA, European Union (EU), or sanctioned jurisdictions. All operational management and regulatory compliance are the sole responsibility of the Client. BitHide is not liable for any loss of funds or legal breaches resulting from the Client's use of the software.</p>
+      </div>
+      <div class="ft-addr"><p>© 2021–2026 BITHIDE SOLUTION LLC</p><p>Georgia, Tbilisi, Nadzaladevi District, Tornike Eristavi Street, N29, Building N6, b. No. 47</p></div>
     </div>
   </div>
 </footer>
-</div>
 
 
 <!-- CONTACT MODAL -->
@@ -1800,7 +1840,7 @@ const fcards=[...document.querySelectorAll('.fcard')],farrow=document.getElement
 const baIntro=document.getElementById('baIntro'),baIn=document.getElementById('baIn'),baWords=[...document.querySelectorAll('#baH .w')],baLead=baIn.querySelector('p');
 const ba=document.getElementById('ba'),baR=document.getElementById('baRight'),baL=document.getElementById('baLeft');
 const scards=[...document.querySelectorAll('.scard')],media=document.getElementById('media');
-const finalBg=document.getElementById('finalBg'),finalSec=document.getElementById('final'),finalIn=document.querySelector('#final .final-in'),foot=document.querySelector('footer');
+const finalBg=document.getElementById('finalBg'),finalSec=document.getElementById('final'),finalIn=document.querySelector('#final .final-in');
 const mobile=()=>innerWidth<=860;
 function frame(){
   const vh=innerHeight;
@@ -1833,10 +1873,6 @@ function frame(){
   const mr=media.getBoundingClientRect();const mq=ease(seg((vh-mr.top)/(vh*.85),0,1));media.style.transform='scale('+(.86+.14*mq)+')';media.style.borderRadius=(56-24*mq)+'px';
   // final parallax
   const fr=finalBg.parentElement.getBoundingClientRect();const fq=clamp((vh-fr.top)/(vh+fr.height));finalBg.style.transform='scale(1.1) translateY('+((fq-.5)*-60)+'px)';
-  // final CTA stays pinned (bottom-aligned if taller than the viewport) while the footer slides over it
-  finalSec.style.top=Math.min(0,vh-finalSec.offsetHeight)+'px';
-  // the flower background stays put; the banner keeps scrolling up as the footer card slides in
-  const lift=Math.max(0,vh-foot.getBoundingClientRect().top);finalIn.style.transform=lift?'translateY('+(-lift)+'px)':'';
 }
 function raf(t){lenis&&lenis.raf(t);frame();requestAnimationFrame(raf);}
 requestAnimationFrame(raf);
