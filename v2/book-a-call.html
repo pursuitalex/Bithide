@@ -11,101 +11,265 @@
   <meta name="description" content="Choose a time to speak with the BitHide team or contact us directly.">
   <title>Book a Call | BitHide</title>
   <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#081426;--muted:#607087;--blue:#1874ff;--blue-2:#58a8ff;--line:#d8e4f0;--soft:#f4f8fd;--white:#fff;--radius:24px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at 82% 8%,rgba(24,116,255,.13),transparent 28%),linear-gradient(180deg,#fafdff 0%,#f3f8fd 100%);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-    button,a,select{font:inherit}.wrap{width:min(1180px,calc(100% - 48px));margin:auto}.topbar{height:82px;border-bottom:1px solid rgba(8,20,38,.09);background:rgba(255,255,255,.8);backdrop-filter:blur(16px)}.topbar .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{display:inline-flex;align-items:center}.logo img{display:block;width:120px;height:auto}.header-actions{display:flex;align-items:center;gap:12px}.back-link{color:var(--ink);font-size:14px;font-weight:750;text-decoration:none}.back-link:hover{color:var(--blue)}.language{height:42px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);padding:0 34px 0 13px;font-size:13px;font-weight:750;cursor:pointer}
-    main{padding:76px 0 96px}.intro{max-width:970px;margin:0 auto;text-align:center}.confirmation{margin:0 0 22px;color:var(--blue);font-size:13px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.intro h1{margin:0;font-size:clamp(42px,5.6vw,76px);line-height:1.02;letter-spacing:-.052em}.intro h1 span{color:var(--blue)}.contact-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px}.btn{min-height:56px;display:inline-flex;align-items:center;justify-content:center;padding:0 24px;border:1px solid var(--ink);border-radius:13px;font-size:15px;font-weight:800;text-decoration:none;transition:.2s ease}.btn:hover{transform:translateY(-2px)}.btn.primary{background:var(--ink);color:#fff}.btn.secondary{background:#fff;color:var(--ink)}.btn.secondary:hover{border-color:var(--blue);color:var(--blue)}
-    .scheduler{margin-top:58px;border:1px solid rgba(8,20,38,.11);border-radius:30px;background:#fff;box-shadow:0 30px 80px rgba(32,70,112,.13);overflow:hidden}.scheduler-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 30px;border-bottom:1px solid var(--line)}.scheduler-title{display:flex;align-items:center;gap:14px}.calendar-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#eaf4ff;color:var(--blue);font-size:20px}.scheduler-title strong{display:block;font-size:18px}.scheduler-title span,.timezone{display:block;margin-top:3px;color:var(--muted);font-size:13px}.placeholder-pill{padding:8px 12px;border-radius:999px;background:#edf5ff;color:#0c5ac7;font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}.scheduler-body{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr)}.calendar-panel{padding:34px}.month-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}.month-head strong{font-size:20px}.month-nav{display:flex;gap:8px}.month-nav button{width:38px;height:38px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.weekdays,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.weekdays span{padding:8px 0;text-align:center;color:#7a899c;font-size:11px;font-weight:800;text-transform:uppercase}.day{aspect-ratio:1;display:grid;place-items:center;border-radius:12px;color:#36465b;font-size:14px;font-weight:700}.day.empty{visibility:hidden}.day.available{background:#f3f8ff;color:#0b5fd3}.day.selected{background:var(--blue);color:#fff;box-shadow:0 9px 20px rgba(24,116,255,.28)}.time-panel{padding:34px;border-left:1px solid var(--line);background:#fbfdff}.time-panel h2{margin:0;font-size:24px;letter-spacing:-.03em}.time-panel p{margin:8px 0 24px;color:var(--muted);font-size:14px;line-height:1.55}.time-list{display:grid;gap:10px}.time-slot{height:48px;border:1px solid #a8ccfb;border-radius:11px;background:#fff;color:#0b5fd3;font-weight:800}.time-slot.active{background:#eaf4ff;border-color:var(--blue)}.calendar-note{margin:22px 0 0;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.55}
-    footer{padding:25px 0;border-top:1px solid rgba(8,20,38,.09);background:#fff}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--muted);font-size:12px}.footer-inner img{width:92px}
-    @media(max-width:800px){.wrap{width:min(100% - 32px,1180px)}.topbar{height:72px}.back-link{display:none}main{padding:54px 0 72px}.intro h1{font-size:clamp(36px,9vw,58px)}.scheduler{margin-top:44px}.scheduler-body{grid-template-columns:1fr}.time-panel{border-left:0;border-top:1px solid var(--line)}.scheduler-top{align-items:flex-start}.placeholder-pill{display:none}}
-    @media(max-width:520px){.wrap{width:min(100% - 22px,1180px)}.logo img{width:100px}.language{height:38px}.confirmation{font-size:11px;line-height:1.5}.intro h1{font-size:36px}.contact-actions{display:grid}.btn{width:100%}.scheduler{border-radius:22px}.scheduler-top,.calendar-panel,.time-panel{padding:22px}.scheduler-title{align-items:flex-start}.calendar-icon{width:38px;height:38px}.weekdays,.days{gap:4px}.day{border-radius:9px;font-size:12px}.footer-inner{flex-direction:column;align-items:flex-start}}
-  
-    /* Compact laptop layout: confirmation, direct contact and scheduler fit in one viewport. */
-    .topbar{height:68px}
-    main{padding:34px 0 42px}
-    .confirmation{margin-bottom:12px}
-    .intro h1{max-width:980px;margin:0 auto;font-size:clamp(34px,4vw,54px);line-height:1.04;letter-spacing:-.045em}
-    .contact-actions{margin-top:22px}
-    .btn{min-height:50px}
-    .scheduler{margin-top:30px}
-    .scheduler-top{padding:18px 24px}
-    .calendar-icon{width:40px;height:40px}
-    .calendar-panel,.time-panel{padding:24px}
-    .month-head{margin-bottom:16px}
-    .weekdays,.days{gap:5px}
-    .weekdays span{padding:5px 0}
-    .day{height:38px;aspect-ratio:auto}
-    .time-panel h2{font-size:21px}
-    .time-panel p{margin:6px 0 16px}
-    .time-list{gap:8px}
-    .time-slot{height:42px}
-    .calendar-note{margin-top:14px;padding-top:14px}
-    @media(max-width:800px){.topbar{height:68px}main{padding:40px 0 60px}.intro h1{font-size:clamp(34px,8vw,48px)}.scheduler{margin-top:34px}.calendar-panel,.time-panel{padding:24px}}
-    @media(max-width:520px){main{padding-top:34px}.intro h1{font-size:34px}.scheduler-top,.calendar-panel,.time-panel{padding:20px}.day{height:36px}}
-</style>
+    :root{
+      --bg:#F7F9FC; --cream:#EEF3FA; --white:#FFFFFF; --line:#E1E7F0;
+      --ink:#1D2433; --ink-2:#5F6878; --ink-3:#9AA3B3;
+      --acc:#2F63D2; --acc-soft:#4F86F0; --acc-light:#A9C4F7; --tint:#E6EEFC;
+      --r-xl:32px; --r-lg:24px;
+      --ease:cubic-bezier(.22,.7,.2,1); --spring:cubic-bezier(.34,1.45,.64,1); --io:cubic-bezier(.76,0,.24,1);
+      --font:Manrope,system-ui,sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;display:flex;flex-direction:column;font-family:var(--font);color:var(--ink);background:var(--bg);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+    button,a,select{font:inherit;color:inherit}
+    a{text-decoration:none}
+    button{background:none;border:0;cursor:pointer}
+    svg{display:block}
+    .backdrop{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(42% 38% at 86% 0%,rgba(79,134,240,.18),transparent 70%),radial-gradient(36% 32% at 0% 34%,rgba(169,196,247,.24),transparent 70%),var(--bg)}
+    .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+
+    /* header: floating pills, as on the site */
+    .top{padding:16px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .pill{display:flex;align-items:center;height:56px;border-radius:40px;background:#fff;box-shadow:0 6px 30px -12px rgba(29,36,51,.18)}
+    .logo{padding:0 26px 0 20px}
+    .logo img{display:block;height:28px;width:auto}
+    .actions{display:flex;align-items:center;gap:10px}
+    .back{padding:0 24px;gap:10px;font:600 15px/1 var(--font);letter-spacing:-.02em;transition:color .2s}
+    .back:hover{color:var(--acc)}
+    .back svg{width:14px;height:14px;transition:transform .35s var(--ease)}
+    .back:hover svg{transform:translateX(-3px)}
+    .lang{position:relative}
+    .lang select{height:56px;padding:0 44px 0 24px;border:0;border-radius:40px;background:transparent;font:600 15px/1 var(--font);appearance:none;-webkit-appearance:none;cursor:pointer;outline:none}
+    .lang select:focus-visible{box-shadow:0 0 0 4px var(--tint)}
+    .lang svg{position:absolute;right:20px;top:50%;width:13px;height:13px;margin-top:-6px;pointer-events:none;color:var(--ink-2)}
+
+    main{flex:1;padding:clamp(10px,2vh,40px) 0 clamp(28px,5vh,64px)}
+    .intro{max-width:1040px;margin:0 auto;text-align:center}
+    .micro{font:600 13px/1.4 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+    .intro h1{margin-top:clamp(8px,1.2vh,16px);font-weight:500;font-size:clamp(30px,min(3.6vw,5.3vh),56px);line-height:1.05;letter-spacing:-.045em;text-wrap:balance}
+    .intro h1 span{color:var(--acc)}
+    .cta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:clamp(12px,2vh,28px)}
+    .btn{--b:var(--acc);--f:#fff;display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 8px 0 24px;border-radius:40px;background:var(--b);color:var(--f);font:600 15px/1 var(--font);letter-spacing:-.03em;white-space:nowrap;transition:background .3s var(--ease),box-shadow .3s}
+    .btn:hover{background:#2552b5}
+    .btn .dot{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--f);color:var(--b);transition:transform .45s var(--spring)}
+    .btn:hover .dot{transform:translateX(3px)}
+    .btn .dot svg{width:14px;height:14px}
+    .btn.ghost{--b:#fff;--f:var(--ink);box-shadow:inset 0 0 0 1px rgba(29,36,51,.16)}
+    .btn.ghost:hover{background:#fff;box-shadow:inset 0 0 0 1px var(--acc-soft)}
+    .btn.ghost .dot{background:var(--ink);color:#fff}
+
+    /* scheduler */
+    .sched{--cell:clamp(36px,5vh,50px);--gap:clamp(7px,1vh,9px);margin-top:clamp(28px,5vh,64px);display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr);border-radius:var(--r-xl);background:#fff;box-shadow:0 1px 0 var(--line),0 40px 80px -50px rgba(29,60,120,.45);overflow:hidden}
+    .cal{display:flex;flex-direction:column;padding:clamp(18px,3.2vh,40px) clamp(24px,2.8vw,40px);background:linear-gradient(170deg,#5b90f3 0%,var(--acc-soft) 40%,#3f78e8 100%);color:#fff;text-align:center}
+    .cal-ava{width:clamp(44px,6.4vh,60px);height:clamp(44px,6.4vh,60px);margin:0 auto;border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:0 14px 30px -14px rgba(18,52,150,.7)}
+    .cal-ava img{width:54%;height:54%}
+    .cal h2{margin-top:clamp(10px,1.8vh,18px);font:500 clamp(21px,1.95vw,27px)/1.2 var(--font);letter-spacing:-.035em}
+    .month{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:clamp(16px,3vh,30px) 0 clamp(10px,1.8vh,18px)}
+    .month strong{font:600 clamp(18px,1.5vw,21px)/1.2 var(--font);letter-spacing:-.03em;text-transform:capitalize}
+    .month button{flex:none;width:clamp(38px,5vh,46px);height:clamp(38px,5vh,46px);border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.24);color:#fff;transition:background .2s,transform .35s var(--spring)}
+    .month button:hover{background:rgba(255,255,255,.4);transform:scale(1.06)}
+    .month button:disabled{opacity:.45;cursor:default;background:rgba(255,255,255,.16);transform:none}
+    .month svg{width:15px;height:15px}
+    .wk,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:var(--gap)}
+    .days{flex:1;grid-auto-rows:minmax(var(--cell),1fr)}
+    .wk span{padding:6px 0 10px;font:600 11px/1 var(--font);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+    .day{min-height:var(--cell);display:grid;place-items:center;border-radius:40px;font:600 15px/1 var(--font);font-variant-numeric:tabular-nums;color:rgba(255,255,255,.5)}
+    .day.empty{visibility:hidden}
+    button.day{color:#fff;background:rgba(255,255,255,.16);transition:background .2s,color .2s,transform .35s var(--spring)}
+    button.day:hover{background:rgba(255,255,255,.3);transform:translateY(-2px)}
+    button.day.on{background:#fff;color:var(--acc);box-shadow:0 12px 22px -10px rgba(18,52,150,.7)}
+    /* right column: three plain rows (location, duration, time), nothing scrolls */
+    .opts{display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.8vh,34px);padding:clamp(18px,3.2vh,40px) clamp(24px,2.8vw,40px)}
+    .og h3{font:600 16px/1.3 var(--font);letter-spacing:-.02em}
+    .og-line{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .loc{display:flex;align-items:center;gap:8px;margin-top:6px;font:500 15px/1.4 var(--font);color:var(--ink-2);white-space:nowrap}
+    .loc svg{width:16px;height:16px;color:var(--acc)}
+    .seg{display:flex;gap:4px;margin-top:clamp(10px,1.6vh,14px);padding:4px;border-radius:40px;background:var(--cream)}
+    .seg button{flex:1;height:clamp(30px,4.2vh,38px);border-radius:30px;font:600 14px/1 var(--font);color:var(--ink-2);white-space:nowrap;transition:background .25s,color .25s}
+    .seg button:hover{color:var(--acc)}
+    .seg button.on{background:var(--acc);color:#fff}
+    .show{margin-top:3px;font:500 15px/1.4 var(--font);color:var(--ink-2)}
+    .show b{font-weight:600;color:var(--ink)}
+    /* dropdown: same look as the selects in the contact form */
+    .csel{position:relative;flex:0 1 240px;min-width:0}
+    .csel .csel-native{position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none}
+    .csel-btn{display:block;width:100%;height:clamp(42px,5.6vh,48px);padding:0 42px 0 14px;border:1px solid transparent;border-radius:12px;background:var(--tint);font:600 15px/1.3 var(--font);color:var(--acc);text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;outline:none;transition:border-color .25s,box-shadow .25s}
+    .csel::after{content:"";position:absolute;right:16px;top:50%;width:14px;height:14px;margin-top:-7px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%232F63D2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;transition:transform .3s var(--ease)}
+    .csel.open::after{transform:rotate(180deg)}
+    .csel-btn:hover{background:#dbe7fc}
+    .csel-btn:focus-visible,.csel.open .csel-btn{border-color:var(--acc-soft);box-shadow:0 0 0 4px var(--tint)}
+    .csel-pop{position:fixed;z-index:50;margin:0;padding:6px;list-style:none;overflow:auto;overscroll-behavior:contain;background:var(--white);border-radius:14px;box-shadow:0 0 0 1px var(--line),0 28px 60px -24px rgba(18,32,61,.4);opacity:0;transform:translateY(-6px);transition:opacity .18s var(--ease),transform .25s var(--ease);scrollbar-width:thin;scrollbar-color:#cdd6e4 transparent}
+    .csel-pop.in{opacity:1;transform:none}
+    .csel-pop li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:9px;font:500 14.5px/1.3 var(--font);letter-spacing:-.01em;color:var(--ink);cursor:pointer;white-space:nowrap}
+    .csel-pop li.act{background:var(--tint)}
+    .csel-pop li[aria-selected="true"]{color:var(--acc);font-weight:600}
+    .csel-pop li svg{flex:none;width:14px;height:14px;opacity:0}
+    .csel-pop li[aria-selected="true"] svg{opacity:1}
+    .slots{margin-top:clamp(16px,2.5vh,28px);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--gap)}
+    .slot{height:var(--cell);border-radius:40px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font:600 15px/1 var(--font);color:var(--ink);font-variant-numeric:tabular-nums;transition:box-shadow .2s,background .2s,color .2s}
+    .slot:hover{box-shadow:inset 0 0 0 1px var(--acc-soft);color:var(--acc)}
+    .slot.on{background:var(--acc);color:#fff;box-shadow:0 12px 22px -12px rgba(47,99,210,.8)}
+
+    footer{padding:0 0 20px}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 28px;border-radius:var(--r-lg);background:#fff;font:500 14px/1.4 var(--font);color:var(--ink-2)}
+    .foot img{height:24px;width:auto}
+
+    @media (max-width:860px){
+      .wrap{width:calc(100% - 32px)}
+      .top{padding:12px 16px 0}
+      .pill,.lang select{height:52px}
+      .back span{display:none}.back{padding:0 18px}
+      .sched{grid-template-columns:1fr}
+      .sched{--cell:44px}
+      .foot{flex-direction:column;align-items:flex-start;gap:8px}
+    }
+    @media (max-width:520px){
+      .logo{padding:0 18px 0 14px}.logo img{height:24px}
+      .intro h1{font-size:32px}
+      .cta{flex-direction:column;align-items:stretch}
+      .btn{justify-content:space-between}
+      .sched{border-radius:24px}
+      .cal,.opts{padding:18px}
+      .og-line.tz{flex-direction:column;align-items:stretch;gap:10px}
+      .csel{flex:none}
+      .slots{grid-template-columns:repeat(4,minmax(0,1fr))}
+      .sched{--gap:6px}
+      .sched{--cell:40px}
+    }
+    @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap">
-      <a class="logo" id="home-link" href="index.html" aria-label="BitHide home"><img src="assets/logo-filled.svg" alt="BitHide"></a>
-      <div class="header-actions"><a class="back-link" id="back-link" href="index.html">Back to website</a><select class="language" id="language-select" aria-label="Language"><option value="en">EN</option><option value="ru">RU</option><option value="uk">UA</option></select></div>
+  <div class="backdrop"></div>
+  <header class="top">
+    <a class="pill logo" id="home-link" href="index.html" aria-label="BitHide home"><img src="assets/logo-filled.svg" alt="BitHide"></a>
+    <div class="actions">
+      <a class="pill back" id="back-link" href="index.html"><svg viewBox="0 0 16 16"><path d="M13 8H3m4-4L3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="back-text">Back to website</span></a>
+      <label class="pill lang"><select id="language-select" aria-label="Language"><option value="en">EN</option><option value="ru">RU</option><option value="uk">UA</option></select><svg viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
     </div>
   </header>
 
   <main>
     <div class="wrap">
       <section class="intro" aria-labelledby="page-title">
-        <p class="confirmation" data-i18n="thanks">Thank you. We received your request.</p>
+        <p class="micro" data-i18n="thanks">Thank you. We received your request.</p>
         <h1 id="page-title" data-i18n="headline">Please choose the best day and time for a call with our team, <span>or message us directly.</span></h1>
-        <div class="contact-actions">
+        <div class="cta">
           <!-- Replace href with the official BitHide Telegram link before publishing. -->
-          <a class="btn primary" href="#" data-placeholder-contact="telegram" data-i18n="telegram">Message us on Telegram →</a>
+          <a class="btn" href="#" data-placeholder-contact="telegram"><span data-i18n="telegram">Message us on Telegram</span><i class="dot"><svg viewBox="0 0 16 16"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
           <!-- Replace href with the official BitHide WhatsApp link before publishing. -->
-          <a class="btn secondary" href="#" data-placeholder-contact="whatsapp" data-i18n="whatsapp">Message us on WhatsApp →</a>
+          <a class="btn ghost" href="#" data-placeholder-contact="whatsapp"><span data-i18n="whatsapp">Message us on WhatsApp</span><i class="dot"><svg viewBox="0 0 16 16"><path d="M2 8h11M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></a>
         </div>
       </section>
 
-      <!-- Replace this placeholder with the official Calendly embed before publishing. -->
-      <section class="scheduler" aria-labelledby="calendar-title">
-        <div class="scheduler-top">
-          <div class="scheduler-title"><div class="calendar-icon" aria-hidden="true">▦</div><div><strong id="calendar-title" data-i18n="calendarTitle">Choose a day and time</strong><span data-i18n="duration">30-minute conversation with the BitHide team</span></div></div>
-          <div class="placeholder-pill" data-i18n="placeholder">Calendly placeholder</div>
+      <!-- Replace this placeholder with the live scheduling embed before publishing. -->
+      <section class="sched" aria-labelledby="calendar-title">
+        <div class="cal">
+          <div class="cal-ava" aria-hidden="true"><img src="favicon.svg" alt=""></div>
+          <h2 id="calendar-title" data-i18n="findTime">Find a time to meet with bithide.io</h2>
+          <div class="month"><button type="button" id="prev-month" aria-label="Previous month"><svg viewBox="0 0 16 16"><path d="m10 3.5-4.5 4.5 4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><strong id="month-name"></strong><button type="button" id="next-month" aria-label="Next month"><svg viewBox="0 0 16 16"><path d="m6 3.5 4.5 4.5L6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+          <div class="wk" id="weekdays"></div>
+          <div class="days" id="days"></div>
         </div>
-        <div class="scheduler-body">
-          <div class="calendar-panel" aria-hidden="true">
-            <div class="month-head"><strong>September 2026</strong><div class="month-nav"><button type="button" tabindex="-1">‹</button><button type="button" tabindex="-1">›</button></div></div>
-            <div class="weekdays"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
-            <div class="days"><span class="day empty">0</span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day available">22</span><span class="day available selected">23</span><span class="day available">24</span><span class="day available">25</span><span class="day">26</span><span class="day">27</span><span class="day available">28</span><span class="day available">29</span><span class="day available">30</span></div>
-          </div>
-          <div class="time-panel" aria-hidden="true">
-            <h2 data-i18n="available">Available times</h2>
-            <p><span data-i18n="timezone">Times shown in your local timezone</span><span class="timezone">Europe/London</span></p>
-            <div class="time-list"><button class="time-slot" type="button" tabindex="-1">10:00</button><button class="time-slot active" type="button" tabindex="-1">11:30</button><button class="time-slot" type="button" tabindex="-1">14:00</button><button class="time-slot" type="button" tabindex="-1">15:30</button></div>
-            <p class="calendar-note" data-i18n="calendarNote">The live Calendly calendar will appear here once the scheduling link is connected.</p>
+        <div class="opts">
+          <div class="og"><h3 data-i18n="location">Meeting location</h3><p class="loc"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2a5 5 0 0 0-5 5c0 3.6 5 8.6 5 8.6s5-5 5-8.6a5 5 0 0 0-5-5Zm0 6.9a1.9 1.9 0 1 1 0-3.8 1.9 1.9 0 0 1 0 3.8Z" fill="currentColor"/></svg>Google Meet</p></div>
+          <div class="og"><h3 id="dur-title" data-i18n="howLong">How long do you need?</h3><div class="seg" id="durations" role="group" aria-labelledby="dur-title"><button type="button" class="on" data-m="30">30 mins</button><button type="button" data-m="15">15 mins</button><button type="button" data-m="45">45 mins</button></div></div>
+          <div class="og">
+            <div class="og-line tz">
+              <div><h3 data-i18n="whatTime">What time works best?</h3><p class="show"><span data-i18n="showing">Showing times for</span> <b id="picked-date"></b></p></div>
+              <select id="tz" aria-label="Time zone"></select>
+            </div>
+            <div class="slots" id="slots"></div>
           </div>
         </div>
       </section>
     </div>
   </main>
 
-  <footer><div class="wrap footer-inner"><img src="assets/logo-filled.svg" alt="BitHide"><span>Crypto Wallet Infrastructure for Business</span><span>Non-Custodial · Self Hosted · White Label</span></div></footer>
+  <footer><div class="wrap"><div class="foot"><img src="assets/logo-filled.svg" alt="BitHide"><span>Crypto Wallet Infrastructure for Business</span><span>Non-Custodial · Self Hosted · White Label</span></div></div></footer>
 
   <script>
     const copy={
-      en:{thanks:'Thank you. We received your request.',headline:'Please choose the best day and time for a call with our team, <span>or message us directly.</span>',telegram:'Message us on Telegram →',whatsapp:'Message us on WhatsApp →',calendarTitle:'Choose a day and time',duration:'30-minute conversation with the BitHide team',placeholder:'Calendly placeholder',available:'Available times',timezone:'Times shown in your local timezone',calendarNote:'The live Calendly calendar will appear here once the scheduling link is connected.',back:'Back to website'},
-      ru:{thanks:'Спасибо. Мы получили вашу заявку.',headline:'Выберите удобные день и время для разговора с нашей командой <span>или напишите нам напрямую.</span>',telegram:'Написать нам в Telegram →',whatsapp:'Написать нам в WhatsApp →',calendarTitle:'Выберите день и время',duration:'30-минутный разговор с командой BitHide',placeholder:'Заглушка Calendly',available:'Доступное время',timezone:'Время указано в вашем часовом поясе',calendarNote:'После подключения ссылки здесь появится рабочий календарь Calendly.',back:'Вернуться на сайт'},
-      uk:{thanks:'Дякуємо. Ми отримали вашу заявку.',headline:'Оберіть зручні день і час для розмови з нашою командою <span>або напишіть нам безпосередньо.</span>',telegram:'Написати нам у Telegram →',whatsapp:'Написати нам у WhatsApp →',calendarTitle:'Оберіть день і час',duration:'30-хвилинна розмова з командою BitHide',placeholder:'Заглушка Calendly',available:'Доступний час',timezone:'Час указано у вашому часовому поясі',calendarNote:'Після підключення посилання тут з’явиться робочий календар Calendly.',back:'Повернутися на сайт'}
+      en:{thanks:'Thank you. We received your request.',headline:'Please choose the best day and time for a call with our team, <span>or message us directly.</span>',telegram:'Message us on Telegram',whatsapp:'Message us on WhatsApp',findTime:'Find a time to meet with bithide.io',location:'Meeting location',howLong:'How long do you need?',mins:'mins',whatTime:'What time works best?',showing:'Showing times for',back:'Back to website'},
+      ru:{thanks:'Спасибо. Мы получили вашу заявку.',headline:'Выберите удобные день и время для разговора с нашей командой <span>или напишите нам напрямую.</span>',telegram:'Написать нам в Telegram',whatsapp:'Написать нам в WhatsApp',findTime:'Выберите время для встречи с bithide.io',location:'Место встречи',howLong:'Сколько времени вам нужно?',mins:'мин',whatTime:'Какое время вам подходит?',showing:'Показано время на',back:'Вернуться на сайт'},
+      uk:{thanks:'Дякуємо. Ми отримали вашу заявку.',headline:'Оберіть зручні день і час для розмови з нашою командою <span>або напишіть нам безпосередньо.</span>',telegram:'Написати нам у Telegram',whatsapp:'Написати нам у WhatsApp',findTime:'Оберіть час для зустрічі з bithide.io',location:'Місце зустрічі',howLong:'Скільки часу вам потрібно?',mins:'хв',whatTime:'Який час вам підходить?',showing:'Показано час на',back:'Повернутися на сайт'}
     };
     const params=new URLSearchParams(location.search);
     const select=document.getElementById('language-select');
+    let lang='en';
+
+    /* scheduling placeholder: next working days are selectable, times every 15 minutes (replaced by the live embed later) */
+    const today=new Date();today.setHours(0,0,0,0);
+    const open=[];for(let d=new Date(today),n=0;n<30;){d.setDate(d.getDate()+1);const w=d.getDay();if(w!==0&&w!==6){open.push(d.getTime());n++;}}
+    let view=new Date(open[0]);view.setDate(1);let picked=open[1]||open[0];
+    const durEl=document.getElementById('durations'),daysEl=document.getElementById('days'),wkEl=document.getElementById('weekdays'),monthEl=document.getElementById('month-name'),prev=document.getElementById('prev-month'),next=document.getElementById('next-month');
+    const first=new Date(today.getFullYear(),today.getMonth(),1).getTime(),last=new Date(new Date(open[open.length-1]).getFullYear(),new Date(open[open.length-1]).getMonth(),1).getTime();
+    function renderCalendar(){
+      const loc=lang==='uk'?'uk-UA':lang==='ru'?'ru-RU':'en-GB';
+      monthEl.textContent=new Intl.DateTimeFormat(loc,{month:'long',year:'numeric'}).format(view).replace(/\s*(г\.|р\.)$/,'');
+      wkEl.innerHTML=[...Array(7)].map((_,i)=>'<span>'+new Intl.DateTimeFormat(loc,{weekday:'short'}).format(new Date(2024,0,1+i)).replace('.','')+'</span>').join('');
+      const y=view.getFullYear(),m=view.getMonth(),lead=(new Date(y,m,1).getDay()+6)%7,count=new Date(y,m+1,0).getDate();let h='';
+      for(let i=0;i<lead;i++)h+='<span class="day empty">0</span>';
+      for(let d=1;d<=count;d++){const t=new Date(y,m,d).getTime();h+=open.includes(t)?'<button type="button" class="day'+(t===picked?' on':'')+'" data-t="'+t+'">'+d+'</button>':'<span class="day">'+d+'</span>';}
+      daysEl.innerHTML=h;prev.disabled=view.getTime()<=first;next.disabled=view.getTime()>=last;
+      document.getElementById('picked-date').textContent=new Intl.DateTimeFormat(loc,{day:'numeric',month:'long',year:'numeric'}).format(new Date(picked)).replace(/\s*(г\.|р\.)$/,'');
+      durEl.querySelectorAll('button').forEach(b=>b.textContent=b.dataset.m+' '+copy[lang].mins);
+    }
+    daysEl.addEventListener('click',e=>{const b=e.target.closest('button.day');if(!b)return;picked=+b.dataset.t;renderCalendar();});
+    prev.addEventListener('click',()=>{view.setMonth(view.getMonth()-1);renderCalendar();});
+    next.addEventListener('click',()=>{view.setMonth(view.getMonth()+1);renderCalendar();});
+    const slotsEl=document.getElementById('slots');
+    for(let t=11*60+45;t<=17*60+45;t+=15)slotsEl.insertAdjacentHTML('beforeend','<button class="slot" type="button">'+String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0')+'</button>');
+    slotsEl.addEventListener('click',e=>{const b=e.target.closest('.slot');if(!b)return;slotsEl.querySelectorAll('.slot').forEach(x=>x.classList.toggle('on',x===b));});
+    durEl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;durEl.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));});
+    /* time zones: the visitor's own zone is preselected, shown as "UTC +03:00 City" */
+    (()=>{const tzEl=document.getElementById('tz'),fix=z=>z.replace('Europe/Kiev','Europe/Kyiv');let mine='Europe/London',zones=[];
+      try{mine=fix(Intl.DateTimeFormat().resolvedOptions().timeZone||mine);zones=Intl.supportedValuesOf('timeZone').map(fix);}catch{}
+      if(!zones.includes(mine))zones.push(mine);
+      const off=z=>{try{const p=new Intl.DateTimeFormat('en-US',{timeZone:z==='Europe/Kyiv'?'Europe/Kiev':z,timeZoneName:'longOffset'}).formatToParts(new Date()).find(x=>x.type==='timeZoneName').value.replace('GMT','');return p||'+00:00';}catch{return '+00:00';}};
+      const mins=o=>{const m=o.match(/([+-])(\d\d):(\d\d)/);return m?(m[1]==='-'?-1:1)*(+m[2]*60+ +m[3]):0;};
+      zones.map(z=>({z,o:off(z)})).sort((a,b)=>mins(a.o)-mins(b.o)||a.z.localeCompare(b.z)).forEach(({z,o})=>{const op=document.createElement('option');op.value=z;op.textContent='UTC '+o+' '+z.split('/').pop().replace(/_/g,' ');op.dataset.city=z.split('/').pop().replace(/_/g,' ').toLowerCase();if(z===mine)op.selected=true;tzEl.appendChild(op);});
+      /* custom dropdown over the native select (keyboard: arrows, Home/End, Enter, Esc, type a city name) */
+      const CHK='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',sel=tzEl;
+      const wrap=document.createElement('div');wrap.className='csel';sel.parentNode.insertBefore(wrap,sel);wrap.appendChild(sel);sel.classList.add('csel-native');sel.tabIndex=-1;
+      const btn=document.createElement('button');btn.type='button';btn.className='csel-btn';btn.setAttribute('aria-haspopup','listbox');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label',sel.getAttribute('aria-label'));wrap.appendChild(btn);
+      let pop=null,act=-1,buf='',bufT=0;
+      const sync=()=>{const o=sel.options[sel.selectedIndex];btn.textContent=o?o.textContent:'';};
+      const mark=(i,follow=true)=>{act=i;const was=pop.querySelector('.act');was&&was.classList.remove('act');const li=pop.children[i];if(li){li.classList.add('act');btn.setAttribute('aria-activedescendant',li.id);if(!follow)return;const t=li.offsetTop,b=t+li.offsetHeight;if(t<pop.scrollTop)pop.scrollTop=t-6;else if(b>pop.scrollTop+pop.clientHeight)pop.scrollTop=b-pop.clientHeight+6;}};
+      const place=()=>{const r=btn.getBoundingClientRect(),vh=innerHeight,below=vh-r.bottom-14,above=r.top-14,want=Math.min(300,pop.scrollHeight+2),up=below<Math.min(want,180)&&above>below;
+        const h=Math.max(120,Math.min(want,up?above:below));Object.assign(pop.style,{left:r.left+'px',width:Math.max(r.width,240)+'px',maxHeight:h+'px',top:(up?r.top-6-h:r.bottom+6)+'px'});
+        const ow=pop.getBoundingClientRect().right-innerWidth+12;if(ow>0)pop.style.left=(r.left-ow)+'px';};
+      const close=()=>{if(!pop)return;pop.remove();pop=null;wrap.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.removeAttribute('aria-activedescendant');};
+      const pick=i=>{if(sel.selectedIndex!==i){sel.selectedIndex=i;sel.dispatchEvent(new Event('change',{bubbles:true}));}close();btn.focus();};
+      const open=()=>{if(pop)return;pop=document.createElement('ul');pop.className='csel-pop';pop.setAttribute('role','listbox');pop.id='tz-list';
+        [...sel.options].forEach((o,i)=>{const li=document.createElement('li');li.id='tz-o'+i;li.setAttribute('role','option');li.setAttribute('aria-selected',i===sel.selectedIndex?'true':'false');li.innerHTML='<span></span>'+CHK;li.firstChild.textContent=o.textContent;
+          li.addEventListener('mousemove',()=>{if(act!==i)mark(i,false)});li.addEventListener('click',()=>pick(i));pop.appendChild(li);});
+        pop.addEventListener('mousedown',e=>e.preventDefault());document.body.appendChild(pop);place();wrap.classList.add('open');btn.setAttribute('aria-expanded','true');btn.setAttribute('aria-controls',pop.id);
+        mark(Math.max(0,sel.selectedIndex));const li=pop.children[act];if(li)pop.scrollTop=li.offsetTop-pop.clientHeight/2+li.offsetHeight/2;requestAnimationFrame(()=>pop&&pop.classList.add('in'));};
+      btn.addEventListener('click',()=>pop?close():open());btn.addEventListener('blur',()=>close());
+      btn.addEventListener('keydown',e=>{const n=sel.options.length;
+        if(!pop){if(['ArrowDown','ArrowUp','Enter',' '].includes(e.key)){e.preventDefault();open();}return;}
+        if(e.key==='Escape'){e.preventDefault();close();}
+        else if(e.key==='ArrowDown'){e.preventDefault();mark(Math.min(n-1,act+1));}
+        else if(e.key==='ArrowUp'){e.preventDefault();mark(Math.max(0,act-1));}
+        else if(e.key==='Home'){e.preventDefault();mark(0);}else if(e.key==='End'){e.preventDefault();mark(n-1);}
+        else if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(act);}
+        else if(e.key==='Tab'){close();}
+        else if(e.key.length===1){clearTimeout(bufT);buf+=e.key.toLowerCase();bufT=setTimeout(()=>buf='',700);const i=[...sel.options].findIndex(o=>o.dataset.city.startsWith(buf));if(i>=0)mark(i);}});
+      sel.addEventListener('change',sync);sync();addEventListener('scroll',close,{passive:true});addEventListener('resize',close);})();
+
     function setLanguage(language){
-      const lang=copy[language]?language:'en';document.documentElement.lang=lang;select.value=lang;
+      lang=copy[language]?language:'en';document.documentElement.lang=lang;select.value=lang;
       document.querySelectorAll('[data-i18n]').forEach(node=>{const value=copy[lang][node.dataset.i18n];if(value!==undefined)node.innerHTML=value;});
-      document.getElementById('back-link').textContent=copy[lang].back;
+      document.getElementById('back-text').textContent=copy[lang].back;
       const landing='index.html';document.getElementById('home-link').href=landing;document.getElementById('back-link').href=landing;
       const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url);
       try{localStorage.setItem('bithide-language',lang);}catch{}
+      renderCalendar();
     }
     select.addEventListener('change',event=>setLanguage(event.target.value));
     let initial=params.get('lang')||'en';try{initial=params.get('lang')||localStorage.getItem('bithide-language')||'en';}catch{}setLanguage(initial);
