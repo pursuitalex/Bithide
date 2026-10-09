@@ -19,6 +19,7 @@
   --acc:#2F63D2; --acc-soft:#4F86F0; --acc-light:#A9C4F7; --tint:#E6EEFC;
   --pos:#15935a; --neg:#e5484d;
   --r-xl:32px; --r-lg:24px; --r-md:18px;
+  --r-field:16px; --r-field-sm:12px; /* inputs, selects, search and text areas: large corners, not a pill (pills are for buttons) */
   --ease:cubic-bezier(.22,.7,.2,1);
   --font:Manrope,system-ui,sans-serif;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
@@ -117,7 +118,7 @@ main{width:min(1240px,100% - 48px);margin:24px auto 80px}
 
 /* table */
 .tbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.search{display:flex;align-items:center;gap:10px;width:min(380px,100%);height:48px;padding:0 18px;border-radius:40px;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .2s}
+.search{display:flex;align-items:center;gap:10px;width:min(380px,100%);height:48px;padding:0 18px;border-radius:var(--r-field);background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .2s}
 .search:focus-within{box-shadow:inset 0 0 0 2px var(--acc-soft)}
 .search svg{width:17px;height:17px;color:var(--ink-3);flex:none}
 .search input{flex:1;min-width:0;border:0;outline:0;background:none;font:500 15px/1 var(--font);color:var(--ink)}
@@ -158,10 +159,10 @@ td:last-child,th:last-child{text-align:right}
 .tabs button.on em{background:rgba(255,255,255,.2);color:#fff}
 .field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .field>span{font:600 12px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
-.sel,.inp{height:48px;width:100%;padding:0 42px 0 18px;border:0;border-radius:40px;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%235F6878' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center/14px;box-shadow:inset 0 0 0 1px var(--line);font:600 14px/1 var(--font);color:var(--ink);appearance:none;cursor:pointer;outline:0;transition:box-shadow .2s}
+.sel,.inp{height:48px;width:100%;padding:0 42px 0 18px;border:0;border-radius:var(--r-field);background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%235F6878' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center/14px;box-shadow:inset 0 0 0 1px var(--line);font:600 14px/1 var(--font);color:var(--ink);appearance:none;cursor:pointer;outline:0;transition:box-shadow .2s}
 .inp{background-image:none;padding:0 18px;cursor:text}
 .sel:focus,.inp:focus{box-shadow:inset 0 0 0 2px var(--acc-soft)}
-.sel.sm{height:36px;width:auto;padding:0 36px 0 14px;background-position:right 12px center;font-size:13px}
+.sel.sm{height:36px;width:auto;padding:0 36px 0 14px;background-position:right 12px center;font-size:13px;border-radius:var(--r-field-sm)}
 .btn-o{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:30px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font:600 14px/1 var(--font);color:var(--ink);white-space:nowrap;transition:box-shadow .2s,color .2s,background .2s}
 .btn-o:hover{box-shadow:inset 0 0 0 1px var(--acc-light);color:var(--acc)}
 .btn-o.pri{background:var(--acc);color:#fff;box-shadow:none}
@@ -186,7 +187,7 @@ td:last-child,th:last-child{text-align:right}
 .limit .v b{font:600 28px/1 var(--font);letter-spacing:-.04em}
 .limit .v .u{font:600 15px/1 var(--font);color:var(--ink-2)}
 .limit .ed{display:flex;gap:8px;align-items:center}
-.limit .ed .inp{width:140px;height:40px;background:#fff}
+.limit .ed .inp{width:140px;height:40px;background:#fff;border-radius:var(--r-field-sm)}
 .svc{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .svc .field{width:min(360px,100%)}
 .svc .acts{display:flex;gap:10px;align-items:center}
@@ -239,7 +240,7 @@ td:last-child,th:last-child{text-align:right}
 .form{display:grid;gap:18px;margin-top:22px}
 .field>.lbl{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .field .cnt{font:500 12px/1 var(--font);letter-spacing:0;text-transform:none;color:var(--ink-3);font-style:normal;font-variant-numeric:tabular-nums}
-.ta{width:100%;min-height:150px;padding:14px 18px;border:0;border-radius:var(--r-md);background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);font:500 15px/1.5 var(--font);color:var(--ink);outline:0;resize:vertical;transition:box-shadow .2s}
+.ta{width:100%;min-height:150px;padding:14px 18px;border:0;border-radius:var(--r-field);background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);font:500 15px/1.5 var(--font);color:var(--ink);outline:0;resize:vertical;transition:box-shadow .2s}
 .ta:focus{box-shadow:inset 0 0 0 2px var(--acc-soft)}
 .ta::placeholder,.inp::placeholder{color:var(--ink-3);font-weight:500}
 .inp:disabled{color:var(--ink-3);cursor:not-allowed;background-color:var(--cream)}
@@ -328,11 +329,35 @@ td:last-child,th:last-child{text-align:right}
   .set{flex-direction:column;align-items:flex-start}
   .set .st{width:100%;justify-content:space-between}
   .sub-card{padding:18px}
-  .rbar .sel{flex:1;min-width:0}
+  .rbar .dd{flex:1;min-width:0}
+  .rbar .sel{width:100%;min-width:0}
   .sendbar .btn{width:100%;justify-content:space-between}
   .head-row .btn{width:100%;justify-content:space-between}
   .head-row{flex-wrap:wrap}
 }
+
+/* styled dropdowns: the button keeps the look of the field, its arrow turns up while the list is open */
+.dd{position:relative;display:block;min-width:0}
+.dd.sm,.rbar .dd{display:inline-block}
+.dd-native{position:absolute;left:0;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none}
+.dd-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-right:16px;background-image:none;text-align:left}
+.dd-btn.sm{padding-right:12px;gap:8px}
+.dd-btn span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dd-btn svg{width:14px;height:14px;flex:none;color:var(--ink-2);transition:rotate .28s var(--ease)}
+.dd-btn[aria-expanded="true"] svg{rotate:180deg}
+.dd-btn[aria-expanded="true"]{box-shadow:inset 0 0 0 2px var(--acc-soft)}
+.dd-btn:disabled{color:var(--ink-3);cursor:not-allowed}
+.dd-list{position:absolute;z-index:30;left:0;top:calc(100% + 6px);min-width:100%;max-width:calc(100vw - 32px);max-height:292px;overflow:auto;overscroll-behavior:contain;padding:6px;border-radius:18px;background:#fff;box-shadow:0 0 0 1px var(--line),0 26px 50px -22px rgba(18,40,90,.4);list-style:none;white-space:nowrap;animation:ddIn .22s var(--ease)}
+.dd.dd-up .dd-list{top:auto;bottom:calc(100% + 6px);animation-name:ddUp}
+.dd.dd-end .dd-list{left:auto;right:0}
+@keyframes ddIn{from{opacity:0;translate:0 -6px}}
+@keyframes ddUp{from{opacity:0;translate:0 6px}}
+.dd-list li{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:40px;padding:0 12px;border-radius:12px;font:600 14px/1 var(--font);letter-spacing:-.01em;color:var(--ink);cursor:pointer}
+.dd-list li.act{background:var(--cream)}
+.dd-list li[aria-selected="true"]{background:var(--tint);color:var(--acc)}
+.dd-list li[aria-selected="true"]::after{content:"";flex:none;width:14px;height:14px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5 6.5 12 13 4.5' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5 6.5 12 13 4.5' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.dd.sm .dd-list{border-radius:16px}
+.dd.sm .dd-list li{height:34px;font-size:13px;border-radius:10px}
 
 @media (max-width:1100px){
   .menu a span{display:none}
@@ -1020,6 +1045,48 @@ function showUser(id){const u=users.find(x=>x.id===id)||users[0],d=userData(u);u
 let urz;addEventListener('resize',()=>{clearTimeout(urz);urz=setTimeout(()=>{if(!document.querySelector('.view[data-v="user"]').hidden)drawUser()},150)});
 
 document.querySelectorAll('.js-spin').forEach(b=>b.addEventListener('click',()=>{b.classList.remove('spin');void b.offsetWidth;b.classList.add('spin')}));
+
+// ---------- styled dropdowns ----------
+// Every select.sel gets a button and a list drawn in the page style. The native select stays in the DOM as the
+// source of truth: its value, its options (also when they are rebuilt later) and its "change" event work as before.
+(()=>{const all=[];let open=null;
+  const setAct=(o,i)=>{o.act=i;[...o.l.children].forEach((li,k)=>li.classList.toggle('act',k===i));const li=o.l.children[i];if(li&&o.l.scrollHeight>o.l.clientHeight)li.scrollIntoView({block:'nearest'})};
+  const close=focus=>{if(!open)return;const o=open;open=null;o.l.hidden=true;o.b.setAttribute('aria-expanded','false');o.w.classList.remove('dd-open','dd-up','dd-end');if(focus)o.b.focus()};
+  const show=o=>{close();open=o;o.sync();o.l.hidden=false;o.b.setAttribute('aria-expanded','true');o.w.classList.add('dd-open');
+    const r=o.b.getBoundingClientRect(),h=o.l.offsetHeight;o.w.classList.toggle('dd-up',r.bottom+h+12>innerHeight&&r.top-h-12>0);o.w.classList.toggle('dd-end',r.left+o.l.offsetWidth>innerWidth-12);
+    setAct(o,Math.max(0,o.s.selectedIndex))};
+  const pick=(o,i)=>{if(i<0||i>=o.s.options.length)return;const ch=o.s.selectedIndex!==i;o.s.selectedIndex=i;o.sync();close(true);if(ch)o.s.dispatchEvent(new Event('change',{bubbles:true}))};
+  document.querySelectorAll('select.sel').forEach(s=>{
+    const w=document.createElement('div'),b=document.createElement('button'),l=document.createElement('ul');
+    w.className='dd'+(s.classList.contains('sm')?' sm':'');s.parentNode.insertBefore(w,s);
+    b.type='button';b.className=s.className+' dd-btn';b.setAttribute('aria-haspopup','listbox');b.setAttribute('aria-expanded','false');
+    const lb=s.getAttribute('aria-label');if(lb)b.setAttribute('aria-label',lb);
+    b.innerHTML='<span></span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    l.className='dd-list';l.setAttribute('role','listbox');l.hidden=true;
+    w.append(b,l,s);s.classList.add('dd-native');s.tabIndex=-1;s.setAttribute('aria-hidden','true');
+    const o={s,w,b,l,act:-1};all.push(o);
+    o.sync=()=>{const x=s.options[s.selectedIndex];b.firstElementChild.textContent=x?x.textContent:'';[...l.children].forEach((li,i)=>li.setAttribute('aria-selected',i===s.selectedIndex));b.disabled=s.disabled};
+    const fill=()=>{l.innerHTML=[...s.options].map((x,i)=>`<li role="option" data-i="${i}">${esc(x.textContent)}</li>`).join('');o.sync()};
+    new MutationObserver(fill).observe(s,{childList:true});fill();
+    b.addEventListener('click',()=>open===o?close():show(o));
+    b.addEventListener('keydown',e=>{const n=s.options.length,k=e.key;
+      if(open!==o){if(k==='ArrowDown'||k==='ArrowUp'){e.preventDefault();show(o)}return}
+      if(k==='ArrowDown'){e.preventDefault();setAct(o,Math.min(n-1,o.act+1))}
+      else if(k==='ArrowUp'){e.preventDefault();setAct(o,Math.max(0,o.act-1))}
+      else if(k==='Home'){e.preventDefault();setAct(o,0)}
+      else if(k==='End'){e.preventDefault();setAct(o,n-1)}
+      else if(k==='Enter'||k===' '){e.preventDefault();pick(o,o.act)}
+      else if(k==='Escape'){e.preventDefault();e.stopPropagation();close(true)}
+      else if(k==='Tab')close()});
+    l.addEventListener('click',e=>{e.preventDefault();const li=e.target.closest('li');if(li)pick(o,+li.dataset.i)}); // preventDefault: inside a <label> the click would otherwise be passed on to the button and reopen the list
+    l.addEventListener('pointermove',e=>{const li=e.target.closest('li');if(li&&+li.dataset.i!==o.act)setAct(o,+li.dataset.i)});
+  });
+  addEventListener('pointerdown',e=>{if(open&&!open.w.contains(e.target))close()});
+  addEventListener('resize',()=>close());
+  // values can also be changed by the page itself (reset buttons, forms): keep the labels in step
+  const resync=()=>requestAnimationFrame(()=>all.forEach(o=>o.sync()));
+  ['click','change','input','hashchange'].forEach(t=>addEventListener(t,resync));
+})();
 </script>
 </body>
 </html>
