@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#2F63D2">
+<title>BitHide — BackOffice screens</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F9FC; --cream:#EEF3FA; --white:#FFFFFF; --line:#E1E7F0;
+  --ink:#1D2433; --ink-2:#5F6878; --ink-3:#9AA3B3;
+  --acc:#2F63D2; --acc-soft:#4F86F0; --acc-light:#A9C4F7; --tint:#E6EEFC;
+  --r-xl:32px; --r-lg:24px; --r-md:18px;
+  --ease:cubic-bezier(.22,.7,.2,1);
+  --font:Manrope,system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.backdrop{position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(40% 35% at 85% 0%,rgba(79,134,240,.16),transparent 70%),
+  radial-gradient(35% 30% at 0% 30%,rgba(169,196,247,.22),transparent 70%),var(--bg)}
+
+.top{padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.pill{display:flex;align-items:center;gap:6px;height:56px;background:#fff;border-radius:40px;padding:8px;box-shadow:0 6px 30px -12px rgba(29,36,51,.18)}
+.brand{display:flex;align-items:center;gap:12px;padding:0 14px 0 10px}
+.brand img{height:26px;width:auto}
+.brand .tag{height:26px;padding:0 10px;border-radius:30px;background:var(--tint);color:var(--acc);font:700 12px/26px var(--font);letter-spacing:.02em}
+.go{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 6px 0 18px;border-radius:40px;background:var(--acc);color:#fff;font:600 14px/1 var(--font);letter-spacing:-.02em;transition:background .2s}
+.go:hover{background:#2552b5}
+.go i{width:28px;height:28px;border-radius:50%;background:#fff;color:var(--acc);display:grid;place-items:center}
+.go svg{width:14px;height:14px}
+
+main{width:min(1240px,100% - 48px);margin:24px auto 80px}
+.head h1{font:600 clamp(30px,3vw,42px)/1.1 var(--font);letter-spacing:-.045em}
+.head p{margin-top:8px;max-width:60ch;color:var(--ink-2);font-size:16px}
+.group{margin-top:36px}
+.group h2{display:flex;align-items:center;gap:12px;font:600 12px/1 var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.group h2 span{font-weight:600;color:var(--ink-3);letter-spacing:.04em}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.scr{display:flex;flex-direction:column;min-height:214px;padding:24px;border-radius:var(--r-lg);background:#fff;box-shadow:0 1px 0 var(--line),0 24px 50px -40px rgba(29,60,120,.35);transition:transform .45s var(--ease),box-shadow .3s}
+.scr:hover{transform:translateY(-4px);box-shadow:0 1px 0 var(--line),0 30px 60px -36px rgba(29,60,120,.5)}
+.scr .t{display:flex;align-items:center;justify-content:space-between}
+.scr .ic{width:44px;height:44px;border-radius:14px;background:var(--tint);color:var(--acc);display:grid;place-items:center}
+.scr .ic svg{width:20px;height:20px}
+.scr .n{font:500 22px/1 var(--font);letter-spacing:-.03em;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.scr h3{margin-top:20px;font:600 20px/1.2 var(--font);letter-spacing:-.035em}
+.scr p{margin-top:6px;font:500 14px/1.45 var(--font);color:var(--ink-2)}
+.scr .b{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:18px}
+.scr code{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:500 12.5px/1 var(--mono);color:var(--ink-3)}
+.scr .ar{flex:none;width:36px;height:36px;border-radius:50%;background:var(--cream);color:var(--ink);display:grid;place-items:center;transition:background .2s,color .2s}
+.scr:hover .ar{background:var(--acc);color:#fff}
+.scr .ar svg{width:15px;height:15px}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  .top{padding:12px 16px}
+  main{width:calc(100% - 32px)}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .scr{min-height:0;padding:20px}
+  .brand .tag{display:none}
+  .go span{display:none}.go{padding:0 6px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="backdrop"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-in" viewBox="0 0 24 24"><path d="M9 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3M14 16l4-4-4-4M18 12H8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20M10 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm10 9v-1.5a3.5 3.5 0 0 0-2.5-3.35M15.5 4.15a3.5 3.5 0 0 1 0 6.7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 20v-1.5a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4V20M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-tariff" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="18" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5 21 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-set" viewBox="0 0 24 24"><path d="M4 6h7M17 6h3M4 12h3M13 12h7M4 18h9M19 18h1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="14" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="10" cy="12" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-ramp" viewBox="0 0 24 24"><path d="M4 8h14l-3.5-3.5M20 16H6l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 4v16l-3-3M17 20V4l3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arr" viewBox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="pill"><a class="brand" href="index.html" aria-label="BitHide"><img src="assets/logo-filled.svg" alt="BitHide"><span class="tag">BackOffice</span></a></div>
+  <div class="pill"><a class="go" href="dashboard.html"><span>Open BackOffice</span><i><svg><use href="#i-arr"/></svg></i></a></div>
+</header>
+
+<main>
+  <div class="head">
+    <h1>BackOffice screens</h1>
+    <p>Every screen of the BackOffice in one place. Each card opens the screen itself.</p>
+  </div>
+
+  <section class="group">
+    <h2>Access <span>2 screens</span></h2>
+    <div class="grid">
+      <a class="scr" href="login.html"><div class="t"><span class="ic"><svg><use href="#i-in"/></svg></span><span class="n">01</span></div><h3>Sign in</h3><p>Email and password form that leads into the BackOffice.</p><div class="b"><code>login.html</code><span class="ar"><svg><use href="#i-arr"/></svg></span></div></a>
+      <a class="scr" href="dashboard.html#admins"><div class="t"><span class="ic"><svg><use href="#i-users"/></svg></span><span class="n">02</span></div><h3>Administrators</h3><p>BackOffice users, their status and invitations for new administrators.</p><div class="b"><code>dashboard.html#admins</code><span class="ar"><svg><use href="#i-arr"/></svg></span></div></a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Mobile Business <span>5 screens</span></h2>
+    <div class="grid">
+      <a class="scr" href="dashboard.html#mobile/users"><div class="t"><span class="ic"><svg><use href="#i-phone"/></svg></span><span class="n">03</span></div><h3>Users</h3><p>Current business, operations statistics, two charts and the table of mobile users.</p><div class="b"><code>dashboard.html#mobile/users</code><span class="ar"><svg><use href="#i-arr"/></svg></span></div></a>
+      <a class="scr" href="dashboard.html#user"><div class="t"><span class="ic"><svg><use href="#i-user"/></svg></span><span class="n">04</span></div><h3>Mobile user</h3><p>One user: information, statistics, balance snapshots, turnover by day and withdrawals.</p><div class="b"><code>dashboard.html#user</code><span class="ar"><svg><use href="#i-arr"/></svg></span></div></a>
+      <a class="scr" href="dashboard.html#mobile/tariffs"><div class="t"><span class="ic"><svg><use href="#i-tariff"/></svg></span><span class="n">05</span></div><h3>Tariffs</h3><p>Billing credit limit and the tariffs of each blockchain service.</p><div class="b"><code>dashboard.html#mobile/tariffs</code><span class="ar"><svg><use href="#i-arr"/></svg></span></div></a>
+      <a class="scr" href="dashboard.html#mobile/push"><div class="t"><span class="ic"><svg><use href="#i-send"/></svg></span><span class="n">06</span></div><h3>Push notifications</h3><p>New push message, the choice of recipients and audience filters.</p><div class="b"><code>dashboard.html#mobile/push</code><span class="ar"><svg><use href="#i-arr"/></svg></span></div></a>
+      <a class="scr" href="dashboard.html#mobile/settings"><div class="t"><span class="ic"><svg><use href="#i-set"/></svg></span><span class="n">07</span></div><h3>Settings</h3><p>Global switches of the mobile app features.</p><div class="b"><code>dashboard.html#mobile/settings</code><span class="ar"><svg><use href="#i-arr"/></svg></span></div></a>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Operations <span>2 screens</span></h2>
+    <div class="grid">
+      <a class="scr" href="dashboard.html#ramp"><div class="t"><span class="ic"><svg><use href="#i-ramp"/></svg></span><span class="n">08</span></div><h3>Ramp operations</h3><p>Crypto purchase and sale operations with search and filters.</p><div class="b"><code>dashboard.html#ramp</code><span class="ar"><svg><use href="#i-arr"/></svg></span></div></a>
+      <a class="scr" href="dashboard.html#exchange"><div class="t"><span class="ic"><svg><use href="#i-swap"/></svg></span><span class="n">09</span></div><h3>Exchange operations</h3><p>Exchange operations by state, with filters, sorting and paging.</p><div class="b"><code>dashboard.html#exchange</code><span class="ar"><svg><use href="#i-arr"/></svg></span></div></a>
+    </div>
+  </section>
+</main>
+</body>
+</html>

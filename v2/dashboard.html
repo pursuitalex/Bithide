@@ -235,6 +235,105 @@ td:last-child,th:last-child{text-align:right}
 .xt .dt{color:var(--ink-2);font-variant-numeric:tabular-nums}
 .xt .dt b{display:block;color:var(--ink);font-weight:600}
 
+/* forms: push message */
+.form{display:grid;gap:18px;margin-top:22px}
+.field>.lbl{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.field .cnt{font:500 12px/1 var(--font);letter-spacing:0;text-transform:none;color:var(--ink-3);font-style:normal;font-variant-numeric:tabular-nums}
+.ta{width:100%;min-height:150px;padding:14px 18px;border:0;border-radius:var(--r-md);background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);font:500 15px/1.5 var(--font);color:var(--ink);outline:0;resize:vertical;transition:box-shadow .2s}
+.ta:focus{box-shadow:inset 0 0 0 2px var(--acc-soft)}
+.ta::placeholder,.inp::placeholder{color:var(--ink-3);font-weight:500}
+.inp:disabled{color:var(--ink-3);cursor:not-allowed;background-color:var(--cream)}
+.tabs.sm{margin-top:20px;background:var(--bg)}
+.tabs.sm button{height:36px;padding:0 16px;font-size:13px}
+.fset{margin-top:14px;padding:18px 20px 20px;border-radius:var(--r-md);background:var(--bg);box-shadow:inset 0 0 0 1px var(--line)}
+.fset h4{font:600 15px/1.3 var(--font);letter-spacing:-.02em}
+.fset>p{margin-top:4px;font:500 13.5px/1.45 var(--font);color:var(--ink-2)}
+.fset .grid{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+.fset .field{width:min(260px,100%)}
+.fset .sel,.fset .inp{background-color:#fff}
+.fset .inp:disabled{background-color:var(--cream)}
+.inp-u{position:relative;display:block}
+.inp-u .inp{padding-right:60px}
+.inp-u i{position:absolute;right:18px;top:50%;translate:0 -50%;font:600 12px/1 var(--font);font-style:normal;color:var(--ink-3)}
+.pick{margin-top:14px;max-height:296px;overflow:auto;border-radius:var(--r-md);background:var(--bg);box-shadow:inset 0 0 0 1px var(--line)}
+.pick label{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line);font:500 14px/1.3 var(--font);cursor:pointer}
+.pick label:last-child{border-bottom:0}
+.pick input{width:18px;height:18px;accent-color:var(--acc);flex:none}
+.pick .uid{margin-left:auto;font-size:12px}
+.drop{display:block;margin-top:14px;padding:34px 20px;border-radius:var(--r-md);border:1.5px dashed var(--acc-light);background:var(--bg);text-align:center;color:var(--ink-2);font:500 14px/1.5 var(--font);cursor:pointer;transition:background .2s,border-color .2s}
+.drop:hover{background:var(--tint);border-color:var(--acc-soft)}
+.drop b{display:block;font:600 15px/1.3 var(--font);color:var(--ink)}
+.drop input{position:absolute;opacity:0;width:1px;height:1px}
+.recip{margin-top:16px;padding:18px 20px;border-radius:var(--r-md);background:var(--tint);width:min(520px,100%)}
+.recip span{display:block;font:500 13.5px/1.3 var(--font);color:var(--ink-2)}
+.recip b{display:block;margin-top:6px;font:600 30px/1.1 var(--font);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.recip p{margin-top:6px;font:500 13.5px/1.45 var(--font);color:var(--ink-2)}
+.sendbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sendbar b{display:block;margin-top:2px;font:600 20px/1.2 var(--font);letter-spacing:-.03em}
+.btn:disabled{background:var(--cream);color:var(--ink-3);cursor:default}
+.btn:disabled .ar{color:var(--ink-3)}
+
+/* settings: list of global switches */
+.sets{margin-top:20px;border-radius:var(--r-md);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.set{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.set:last-child{border-bottom:0}
+.set h4{display:flex;align-items:center;gap:10px;font:600 15.5px/1.3 var(--font);letter-spacing:-.02em}
+.set h4 svg{width:16px;height:16px;color:var(--ink-3);flex:none}
+.set p{margin-top:4px;font:500 13.5px/1.45 var(--font);color:var(--ink-2)}
+.set code{display:block;margin-top:6px;font:500 12px/1.3 var(--mono);color:var(--ink-3)}
+.set .st{display:flex;align-items:center;gap:12px;flex:none}
+.set .btn-o{min-width:104px;justify-content:center}
+
+/* administrators, ramp */
+.at td,.rt td{white-space:nowrap}
+.at td b{font-weight:600}
+.rbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.rbar .search{width:min(360px,100%)}
+.rbar .sel{width:auto;min-width:200px}
+.rbar .icon-btn{margin-left:auto}
+.rt{min-width:1240px}
+.rt th{white-space:nowrap}
+.rt .oid a{white-space:nowrap}
+.rt .mth{font:500 13px/1.3 var(--mono);color:var(--ink-2)}
+.rt .amt{font-weight:600;font-variant-numeric:tabular-nums}
+
+/* mobile user */
+.back{display:inline-flex;align-items:center;gap:8px;height:38px;margin-bottom:18px;padding:0 16px 0 12px;border-radius:30px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font:600 13.5px/1 var(--font);color:var(--ink-2);transition:color .2s,box-shadow .2s}
+.back:hover{color:var(--acc);box-shadow:inset 0 0 0 1px var(--acc-light)}
+.back svg{width:14px;height:14px;rotate:180deg}
+.kv{display:grid;grid-template-columns:1.1fr 1.6fr 1fr;gap:16px 32px;margin-top:22px}
+.kv span{display:block;font:500 13px/1.3 var(--font);color:var(--ink-3)}
+.kv b{display:block;margin-top:4px;font:600 15px/1.35 var(--font);overflow-wrap:anywhere}
+.kv .uid{font-family:var(--mono);font-weight:500;font-size:14px;color:var(--ink)}
+.legend.col{flex-direction:column;gap:8px}
+.legend.col span{overflow-wrap:anywhere}
+.sub-card{margin-top:12px;border-radius:var(--r-lg);padding:22px;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);min-width:0}
+.sub-card h3{font:600 17px/1.3 var(--font);letter-spacing:-.03em}
+.sub-card table{min-width:520px}
+.sub-card th{background:#fff}
+.sub-card .tbl-wrap{margin-top:14px}
+.sub-card td{font-variant-numeric:tabular-nums}
+.sub-card .tfoot{margin-top:12px}
+.plot .nodata{position:absolute;inset:0;display:grid;place-items:center;font:500 14px/1 var(--font);color:var(--ink-3)}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:28px;z-index:60;translate:-50% 16px;opacity:0;pointer-events:none;display:flex;align-items:center;gap:10px;padding:14px 20px;border-radius:40px;background:var(--ink);color:#fff;font:600 14px/1.2 var(--font);box-shadow:0 24px 50px -20px rgba(18,40,90,.6);transition:opacity .3s var(--ease),translate .4s var(--ease)}
+.toast.on{opacity:1;translate:-50% 0}
+.toast i{width:8px;height:8px;border-radius:50%;background:#6fe0a8}
+@media (max-width:860px){
+  .kv{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .kv{grid-template-columns:1fr}
+  .set{flex-direction:column;align-items:flex-start}
+  .set .st{width:100%;justify-content:space-between}
+  .sub-card{padding:18px}
+  .rbar .sel{flex:1;min-width:0}
+  .sendbar .btn{width:100%;justify-content:space-between}
+  .head-row .btn{width:100%;justify-content:space-between}
+  .head-row{flex-wrap:wrap}
+}
+
 @media (max-width:1100px){
   .menu a span{display:none}
   .menu a{padding:0 12px}
@@ -294,6 +393,8 @@ td:last-child,th:last-child{text-align:right}
   <symbol id="i-x" viewBox="0 0 16 16"><path d="m4 4 8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   <symbol id="i-sort" viewBox="0 0 16 16"><path d="M8 3v10m-4-4 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 16l-4-4 4-4M6 12h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5 21 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-set" viewBox="0 0 16 16"><path d="M2 4h5M11 4h3M2 8h2M8 8h6M2 12h7M13 12h1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="4" r="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="8" r="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="11" cy="12" r="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
   <symbol id="i-arr" viewBox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-mark" viewBox="0 0 64 64"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M32.4467 5.0571C33.4285 5.07301 33.9844 6.14082 33.4934 6.9913L15.5535 38.064C15.3129 38.4809 14.8681 38.7377 14.3867 38.7377H6.94734C6.33256 38.7377 5.7922 38.3223 5.6623 37.7214C5.26376 35.8776 5.05388 33.9638 5.05388 32.0009C5.05388 17.1182 17.1186 5.05349 32.0012 5.05349C32.15 5.05349 32.2985 5.05469 32.4467 5.0571ZM39.7703 6.19029C39.1901 6.01592 38.5732 6.27724 38.2703 6.80182L34.6401 13.0894C34.3994 13.5062 34.3994 14.0198 34.6401 14.4367L52.8305 45.9434C53.3193 46.7898 54.5149 46.8471 55.0239 46.0125C57.5139 41.9299 58.9486 37.1328 58.9486 32.0009C58.9486 19.8192 50.8656 9.52534 39.7703 6.19029ZM50.3512 51.7352C50.7969 51.3205 50.8816 50.6519 50.5771 50.1247L46.7255 43.4535C46.4849 43.0366 46.04 42.7798 45.5587 42.7798H9.35519C8.38382 42.7798 7.73621 43.7756 8.19222 44.6334C12.7201 53.1496 21.6835 58.9482 32.0012 58.9482C39.0904 58.9482 45.5401 56.2108 50.3512 51.7352ZM30.7506 19.8262C31.2692 18.9279 32.5657 18.9279 33.0843 19.8262L42.8361 36.7166C43.3547 37.6149 42.7063 38.7377 41.6691 38.7377H22.1657C21.1285 38.7377 20.4803 37.6149 20.9989 36.7166L30.7506 19.8262Z"/><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M32 61.4737C48.2779 61.4737 61.4737 48.2779 61.4737 32C61.4737 15.7221 48.2779 2.52632 32 2.52632C15.7221 2.52632 2.52631 15.7221 2.52631 32C2.52631 48.2779 15.7221 61.4737 32 61.4737ZM32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64Z"/></symbol>
 </svg>
@@ -315,7 +416,7 @@ td:last-child,th:last-child{text-align:right}
  <section class="view" data-v="mobile">
   <div class="head">
     <h1>Mobile Business</h1>
-    <p>Information about the current mobile business and its users.</p>
+    <p id="mbSub">Information about the current mobile business and its users.</p>
   </div>
   <div class="tabs" role="tablist">
     <button class="on" role="tab" data-t="users">Users</button>
@@ -405,8 +506,59 @@ td:last-child,th:last-child{text-align:right}
       <div class="tfoot"><span id="tCount"></span><div class="r"><label class="per">Rows per page <select class="sel sm" id="tPer"><option>10</option><option selected>25</option><option>50</option></select></label></div></div>
     </section>
   </div>
-  <div class="pane" data-p="push" hidden><div class="soon"><b>Push notifications</b>Campaigns and message history will appear here.</div></div>
-  <div class="pane" data-p="settings" hidden><div class="soon"><b>Settings</b>Business profile, branding and integrations will appear here.</div></div>
+  <div class="pane" data-p="push" hidden>
+    <section class="card">
+      <div class="card-h"><div><h2>New push message</h2><p class="sub">Fill in the subject and text that notification recipients will see.</p></div></div>
+      <div class="form">
+        <label class="field"><span class="lbl">Message subject<i class="cnt" id="pSubC">0/256</i></span><input class="inp" id="pSub" maxlength="256" placeholder="For example, important update" autocomplete="off"></label>
+        <label class="field"><span class="lbl">Message text<i class="cnt" id="pTxtC">0/4096</i></span><textarea class="ta" id="pTxt" maxlength="4096" placeholder="Enter the push message text"></textarea></label>
+      </div>
+    </section>
+    <section class="card">
+      <div class="card-h"><div><h2>Push message recipients</h2><p class="sub">Choose the audience source. Balance filters will be added in a separate task.</p></div></div>
+      <div class="tabs sm" id="pSrc" role="tablist">
+        <button role="tab" data-src="manual">Select manually</button>
+        <button role="tab" data-src="csv">Upload CSV</button>
+        <button class="on" role="tab" data-src="all">All users</button>
+      </div>
+      <div data-src-pane="manual" hidden>
+        <label class="search" style="margin-top:14px"><svg><use href="#i-search"/></svg><input id="pq" type="search" placeholder="Search by email or user ID" autocomplete="off"></label>
+        <div class="pick" id="pPick"></div>
+      </div>
+      <div data-src-pane="csv" hidden>
+        <label class="drop"><input type="file" id="pCsv" accept=".csv,text/csv"><b id="pCsvT">Choose a CSV file</b><span id="pCsvS">One user ID or email per line.</span></label>
+      </div>
+      <div data-src-pane="all">
+        <div class="fset">
+          <h4>Balance filter</h4>
+          <p>Limit the audience by the user's total balance in USD.</p>
+          <div class="grid">
+            <label class="field"><span>Condition</span><select class="sel" id="pCond"><option value="">No filter</option><option value="gt">Greater than</option><option value="lt">Less than</option></select></label>
+            <label class="field"><span>Amount, USD</span><i class="inp-u" style="font-style:normal"><input class="inp" id="pAmt" type="number" min="0" step="0.01" placeholder="0.00" disabled><i>USD</i></i></label>
+          </div>
+        </div>
+        <div class="fset">
+          <h4>Country filter</h4>
+          <p>Select one or more user countries. Without a selection the filter is not applied.</p>
+          <div class="grid"><label class="field"><span>Countries</span><select class="sel" id="pCountry"></select></label></div>
+        </div>
+      </div>
+      <div class="recip"><span>Recipients</span><b id="pN">0</b><p id="pNote">The full list of users is not shown in this mode.</p></div>
+    </section>
+    <section class="card sendbar">
+      <div><span class="sub" style="margin:0">Ready to send</span><b id="pReady">0 recipients</b></div>
+      <button class="btn" id="pSend" type="button" disabled>Send message<span class="ar"><svg><use href="#i-send"/></svg></span></button>
+    </section>
+  </div>
+  <div class="pane" data-p="settings" hidden>
+    <section class="card">
+      <div class="card-h">
+        <div><h2>Global mobile app settings</h2><p class="sub">These switches apply to all users except those with an individual setting.</p></div>
+        <button class="icon-btn js-spin" aria-label="Refresh"><svg><use href="#i-refresh"/></svg></button>
+      </div>
+      <div class="sets" id="sets"></div>
+    </section>
+  </div>
  </section>
 
  <section class="view" data-v="exchange" hidden>
@@ -450,8 +602,92 @@ td:last-child,th:last-child{text-align:right}
   </section>
  </section>
 
- <section class="view" data-v="admins" hidden><div class="head"><h1>Administrators</h1><p>BackOffice accounts and their access rights.</p></div><div class="soon"><b>Administrators</b>The list of BackOffice administrators will appear here.</div></section>
- <section class="view" data-v="ramp" hidden><div class="head"><h1>Ramp operations</h1><p>On-ramp and off-ramp orders of your customers.</p></div><div class="soon"><b>Ramp operations</b>Fiat-to-crypto and crypto-to-fiat orders will appear here.</div></section>
+ <section class="view" data-v="user" hidden>
+  <a class="back" href="#mobile/users"><svg><use href="#i-arr"/></svg>Back to Mobile Business</a>
+  <div class="head">
+    <h1>Mobile user</h1>
+    <p>Read-only information about the mobile user and their devices.</p>
+  </div>
+  <section class="card">
+    <div class="card-h"><h2>User information</h2><button class="icon-btn js-spin" aria-label="Refresh"><svg><use href="#i-refresh"/></svg></button></div>
+    <div class="kv">
+      <div><span>Email</span><b id="uEmail"></b></div>
+      <div><span>UUID</span><b class="uid" id="uId"></b></div>
+      <div><span>Created</span><b id="uCreated"></b></div>
+    </div>
+  </section>
+  <section class="card">
+    <div class="card-h">
+      <div><h2>Operations statistics</h2><span class="chip"><i></i>All time</span></div>
+      <button class="btn js-spin">Refresh<span class="ar"><svg><use href="#i-refresh"/></svg></span></button>
+    </div>
+    <div class="stats" id="uStats"></div>
+    <div class="charts">
+      <div class="chart">
+        <h3>Balance by day</h3>
+        <p>USD snapshots prepared by BackOffice.</p>
+        <div class="plot" id="uLine"></div>
+        <div class="legend col" id="uLg"></div>
+      </div>
+      <div class="chart">
+        <h3>Turnover by day</h3>
+        <p>Deposits above the axis, withdrawals below; USD.</p>
+        <div class="plot" id="uBar"></div>
+        <div class="legend"><span style="--c:var(--pos)"><i></i>Deposits</span><span style="--c:var(--neg)"><i></i>Withdrawals</span></div>
+      </div>
+    </div>
+    <div class="sub-card">
+      <h3>Current balance snapshots</h3>
+      <div class="tbl-wrap"><table><thead><tr><th>Wallet</th><th>Asset</th><th>Balance</th><th>USD</th></tr></thead><tbody id="uSnap"></tbody></table></div>
+    </div>
+    <div class="sub-card">
+      <h3>Turnover by day</h3>
+      <span class="chip"><i></i>All time</span>
+      <div class="tbl-wrap"><table><thead><tr><th>Date</th><th>Deposits, USD</th><th>Withdrawals, USD</th></tr></thead><tbody id="uTurn"></tbody></table></div>
+      <div class="tfoot"><span id="uTurnC"></span><div class="pager"><button disabled aria-label="Previous">‹</button><button disabled aria-label="Next">›</button></div></div>
+    </div>
+    <div class="sub-card">
+      <div class="card-h"><h3>Withdrawal operations</h3><button class="icon-btn js-spin" aria-label="Refresh"><svg><use href="#i-refresh"/></svg></button></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Operation ID</th><th>Asset</th><th>Amount</th><th>Status</th><th>Created</th></tr></thead><tbody id="uWd"></tbody></table></div>
+    </div>
+  </section>
+ </section>
+
+ <section class="view" data-v="admins" hidden>
+  <div class="head head-row">
+    <div><h1>Administrators</h1><p>BackOffice users and invitations for new administrators.</p></div>
+    <button class="btn" id="invBtn" type="button">Invite administrator<span class="ar"><svg><use href="#i-plus"/></svg></span></button>
+  </div>
+  <section class="card">
+    <div class="tbar">
+      <label class="search"><svg><use href="#i-search"/></svg><input id="aq" type="search" placeholder="Search by email" autocomplete="off"></label>
+      <button class="icon-btn js-spin" aria-label="Refresh"><svg><use href="#i-refresh"/></svg></button>
+    </div>
+    <div class="tbl-wrap">
+      <table class="at"><thead><tr><th>Email</th><th>Status</th><th>Created</th><th>Modified</th><th>Actions</th></tr></thead><tbody id="aRows"></tbody></table>
+    </div>
+    <div class="tfoot"><span id="aCount"></span><div class="r"><label class="per">Rows per page <select class="sel sm" id="aPer"><option>10</option><option selected>25</option><option>50</option></select></label><div class="pager" id="aPager"></div></div></div>
+  </section>
+ </section>
+
+ <section class="view" data-v="ramp" hidden>
+  <div class="head">
+    <h1>Ramp operations</h1>
+    <p>Viewing crypto purchase and sale operations.</p>
+  </div>
+  <section class="card">
+    <div class="rbar">
+      <label class="search"><svg><use href="#i-search"/></svg><input id="rq" type="search" placeholder="Operation ID, user or email" autocomplete="off"></label>
+      <select class="sel" id="rDir" aria-label="Direction"><option value="">All directions</option><option value="buy">Crypto purchase</option><option value="sell">Crypto sale</option></select>
+      <select class="sel" id="rSt" aria-label="State"></select>
+      <button class="icon-btn js-spin" aria-label="Refresh"><svg><use href="#i-refresh"/></svg></button>
+    </div>
+    <div class="tbl-wrap">
+      <table class="rt"><thead><tr><th>Operation ID</th><th>Direction</th><th>Status</th><th>Provider</th><th>Payment method</th><th>Fiat amount</th><th>Crypto amount</th><th>Email</th><th>Created</th></tr></thead><tbody id="rRows"></tbody></table>
+    </div>
+    <div class="tfoot"><span id="rCount"></span><div class="r"><label class="per">Rows per page <select class="sel sm" id="rPer"><option>10</option><option selected>25</option><option>50</option></select></label><div class="pager" id="rPager"></div></div></div>
+  </section>
+ </section>
 </main>
 
 <div class="modal" id="tModal" role="dialog" aria-modal="true" aria-labelledby="tmH">
@@ -462,6 +698,17 @@ td:last-child,th:last-child{text-align:right}
       <label class="field"><span>Tariff name</span><input class="inp" id="tName" required maxlength="40" placeholder="e.g. Tariff 3 Premium"></label>
       <label class="field"><span>Packages</span><select class="sel" id="tPk"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option></select></label>
       <div class="row"><button class="btn-o gh" type="button" id="tCancel">Cancel</button><button class="btn-o pri" type="submit">Save tariff</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="aModal" role="dialog" aria-modal="true" aria-labelledby="amH">
+  <div class="box">
+    <h3 id="amH">Invite administrator</h3>
+    <p class="sub">An invitation link will be sent to this email.</p>
+    <form id="aForm">
+      <label class="field"><span>Email</span><input class="inp" id="aEmail" type="email" required maxlength="80" placeholder="name@example.com" autocomplete="off"></label>
+      <div class="row"><button class="btn-o gh" type="button" id="aCancel">Cancel</button><button class="btn-o pri" type="submit">Send invitation</button></div>
     </form>
   </div>
 </div>
@@ -541,7 +788,7 @@ const rows=document.getElementById('rows'),pager=document.getElementById('pager'
 function render(){
   const pages=Math.max(1,Math.ceil(list.length/PER));page=Math.min(page,pages);
   const slice=list.slice((page-1)*PER,page*PER);
-  rows.innerHTML=slice.length?slice.map(u=>`<tr><td><div class="em"><span class="ava" style="--c:${u.c}">${u.email[0].toUpperCase()}</span>${u.email}</div></td><td class="uid">${u.id}</td><td class="bal${u.bal?'':' zero'}">${fmt(u.bal)} $</td><td><a class="open" href="#">Open<svg><use href="#i-arr"/></svg></a></td></tr>`).join(''):`<tr><td colspan="4" class="empty">No users found</td></tr>`;
+  rows.innerHTML=slice.length?slice.map(u=>`<tr><td><div class="em"><span class="ava" style="--c:${u.c}">${u.email[0].toUpperCase()}</span>${u.email}</div></td><td class="uid">${u.id}</td><td class="bal${u.bal?'':' zero'}">${fmt(u.bal)} $</td><td><a class="open" href="#user/${u.id}">Open<svg><use href="#i-arr"/></svg></a></td></tr>`).join(''):`<tr><td colspan="4" class="empty">No users found</td></tr>`;
   count.textContent=list.length?`Showing ${(page-1)*PER+1}–${Math.min(page*PER,list.length)} of ${list.length} users`:'0 users';
   let h=`<button ${page===1?'disabled':''} data-p="${page-1}" aria-label="Previous">‹</button>`;
   for(let p=1;p<=pages;p++)h+=`<button class="${p===page?'on':''}" data-p="${p}">${p}</button>`;
@@ -552,14 +799,16 @@ document.getElementById('q').addEventListener('input',e=>{const q=e.target.value
 render();
 
 // sections (top menu) + mobile business tabs
-const setTab=t=>{document.querySelectorAll('.tabs [data-t]').forEach(x=>x.classList.toggle('on',x.dataset.t===t));document.querySelectorAll('.pane').forEach(p=>p.hidden=p.dataset.p!==t);if(t==='users')charts.forEach(f=>f())};
-document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setTab(b.dataset.t)});
-const VIEWS=['mobile','exchange','admins','ramp'];
+const MB_SUB={users:'Information about the current mobile business and its users.',tariffs:'Tariffs and calculation parameters for supported blockchain services.',push:'Preparing push notifications for all or selected mobile users.',settings:'Turn the features that users see in the mobile app on and off.'};
+const setTab=t=>{document.querySelectorAll('.tabs [data-t]').forEach(x=>x.classList.toggle('on',x.dataset.t===t));document.querySelectorAll('.pane').forEach(p=>p.hidden=p.dataset.p!==t);document.getElementById('mbSub').textContent=MB_SUB[t];if(t==='users')charts.forEach(f=>f())};
+document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)location.hash='mobile/'+b.dataset.t});
+const VIEWS=['mobile','exchange','admins','ramp','user'];
 function route(){const h=location.hash.slice(1);const [v,t]=h.split('/');const view=VIEWS.includes(v)?v:'mobile';
   document.querySelectorAll('.view').forEach(x=>x.hidden=x.dataset.v!==view);
-  document.querySelectorAll('.menu a').forEach(a=>{const on=a.dataset.v===view;a.classList.toggle('on',on);on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
+  document.querySelectorAll('.menu a').forEach(a=>{const on=a.dataset.v===(view==='user'?'mobile':view);a.classList.toggle('on',on);on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
   if(view==='mobile')setTab(['users','tariffs','push','settings'].includes(t)?t:'users');
-  document.title='BitHide — '+{mobile:'Mobile Business',exchange:'Exchange operations',admins:'Administrators',ramp:'Ramp operations'}[view];
+  if(view==='user')setTimeout(()=>showUser(t),0); // after the rest of the script has run
+  document.title='BitHide — '+{mobile:'Mobile Business',exchange:'Exchange operations',admins:'Administrators',ramp:'Ramp operations',user:'Mobile user'}[view];
   scrollTo(0,0);}
 addEventListener('hashchange',route);route();
 
@@ -639,6 +888,137 @@ document.querySelectorAll('.xt th [data-sort]').forEach(b=>b.addEventListener('c
 X('advBtn').addEventListener('click',()=>{const o=X('advBox').hidden;X('advBox').hidden=!o;X('advBtn').setAttribute('aria-expanded',o)});
 X('xReset').addEventListener('click',()=>{['xq','xStatus','xProv','xFrom','xTo','xMin','xMax','xD1','xD2'].forEach(id=>X(id).value='');xs.page=1;renderX()});
 fillStatus();renderX();
+// ---------- shared helpers for the newer screens ----------
+const P=id=>document.getElementById(id);
+const pagerHTML=(page,pages)=>{let h=`<button ${page===1?'disabled':''} data-p="1" aria-label="First">«</button><button ${page===1?'disabled':''} data-p="${page-1}" aria-label="Previous">‹</button>`;
+  for(let p=1;p<=pages;p++)h+=`<button class="${p===page?'on':''}" data-p="${p}">${p}</button>`;
+  return h+`<button ${page===pages?'disabled':''} data-p="${page+1}" aria-label="Next">›</button><button ${page===pages?'disabled':''} data-p="${pages}" aria-label="Last">»</button>`};
+const toastEl=document.createElement('div');toastEl.className='toast';toastEl.setAttribute('role','status');document.body.appendChild(toastEl);let toastT;
+const toast=m=>{toastEl.innerHTML='<i></i>'+esc(m);toastEl.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>toastEl.classList.remove('on'),2600)};
+const plural=(n,w)=>n+' '+w+(n===1?'':'s');
+
+// ---------- push message ----------
+const COUNTRIES=['Ukraine','Poland','Germany','Spain','Turkey','United Arab Emirates'];
+users.forEach((u,i)=>u.country=COUNTRIES[i%COUNTRIES.length]);
+P('pCountry').innerHTML='<option value="">All countries</option>'+COUNTRIES.map(c=>`<option>${c}</option>`).join('');
+const ps={src:'all',picked:new Set(),csv:0};
+function pCount(){
+  if(ps.src==='manual')return ps.picked.size;
+  if(ps.src==='csv')return ps.csv;
+  const c=P('pCond').value,a=+P('pAmt').value||0,ct=P('pCountry').value;
+  return users.filter(u=>(!c||(c==='gt'?u.bal>a:u.bal<a))&&(!ct||u.country===ct)).length;}
+function pSync(){const n=pCount();P('pN').textContent=n;P('pReady').textContent=plural(n,'recipient');
+  P('pNote').textContent={all:'The full list of users is not shown in this mode.',manual:'Only the users you tick will receive the message.',csv:'Recipients are taken from the uploaded file.'}[ps.src];
+  P('pSubC').textContent=P('pSub').value.length+'/256';P('pTxtC').textContent=P('pTxt').value.length+'/4096';
+  P('pSend').disabled=!(n&&P('pSub').value.trim()&&P('pTxt').value.trim());}
+function pPick(){const q=P('pq').value.trim().toLowerCase(),L=q?users.filter(u=>u.email.includes(q)||u.id.includes(q)):users;
+  P('pPick').innerHTML=L.length?L.map(u=>`<label><input type="checkbox" value="${u.id}" ${ps.picked.has(u.id)?'checked':''}>${u.email}<span class="uid">${u.id.slice(0,13)}…</span></label>`).join(''):'<div class="empty">No users found</div>';}
+P('pSrc').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;ps.src=b.dataset.src;
+  document.querySelectorAll('#pSrc button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('[data-src-pane]').forEach(x=>x.hidden=x.dataset.srcPane!==ps.src);
+  if(ps.src==='manual')pPick();pSync()});
+P('pPick').addEventListener('change',e=>{const c=e.target;if(c.checked)ps.picked.add(c.value);else ps.picked.delete(c.value);pSync()});
+P('pq').addEventListener('input',pPick);
+P('pCond').addEventListener('change',()=>{P('pAmt').disabled=!P('pCond').value;if(!P('pCond').value)P('pAmt').value='';pSync()});
+['pAmt','pSub','pTxt'].forEach(id=>P(id).addEventListener('input',pSync));P('pCountry').addEventListener('change',pSync);
+P('pCsv').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{ps.csv=String(r.result).split(/\r?\n/).filter(l=>l.trim()).length;P('pCsvT').textContent=f.name;P('pCsvS').textContent=plural(ps.csv,'row')+' found';pSync()};r.readAsText(f)});
+P('pSend').addEventListener('click',()=>{toast('Push message sent to '+plural(pCount(),'recipient'));P('pSub').value='';P('pTxt').value='';pSync()});
+pSync();
+
+// ---------- settings: global switches of the mobile app ----------
+const SETS=[
+  {n:'Exchange Enable',d:'Controls Exchange surface availability in mobile clients.',k:'exchange.enabled',on:true},
+  {n:'Exchange Coming Soon',d:'Marks Exchange as coming soon in mobile clients.',k:'exchange.comingSoon',on:false},
+  {n:'Onramp Offramp Enable',d:'Controls combined On-ramp/Off-ramp surface availability in mobile clients.',k:'onRampOffRamp.enabled',on:true},
+  {n:'Onramp Offramp Coming Soon',d:'Marks combined On-ramp/Off-ramp as coming soon in mobile clients.',k:'onRampOffRamp.comingSoon',on:false},
+  {n:'2FA Enabled',d:'Controls two-factor authentication availability in mobile clients.',k:'twoFactorAuthentication.enabled',on:true}];
+function renderSets(){P('sets').innerHTML=SETS.map((s,i)=>`<div class="set"><div><h4><svg><use href="#i-set"/></svg>${s.n}</h4><p>${s.d}</p><code>${s.k}</code></div><div class="st"><span class="badge ${s.on?'ok':'muted'}">${s.on?'Enabled':'Disabled'}</span><button class="btn-o" type="button" data-set="${i}">${s.on?'Disable':'Enable'}</button></div></div>`).join('')}
+P('sets').addEventListener('click',e=>{const b=e.target.closest('[data-set]');if(!b)return;const s=SETS[+b.dataset.set];s.on=!s.on;renderSets();toast(s.n+(s.on?' enabled':' disabled'))});
+renderSets();
+
+// ---------- administrators ----------
+const admins=[{email:'admin@yourbrand.io',st:'Registered',c:'03.09.2026, 12:29',m:'10.09.2026, 12:21'}];
+const as={page:1};
+function renderA(){const q=P('aq').value.trim().toLowerCase(),L=q?admins.filter(a=>a.email.includes(q)):admins,per=+P('aPer').value,pages=Math.max(1,Math.ceil(L.length/per));as.page=Math.min(as.page,pages);
+  const S=L.slice((as.page-1)*per,as.page*per),dt=v=>`<td class="uid" style="font-family:var(--font)">${v}</td>`;
+  P('aRows').innerHTML=S.length?S.map(a=>`<tr><td><b>${esc(a.email)}</b></td><td><span class="badge ${a.st==='Registered'?'ok':'acc'}">${a.st}</span></td>${dt(a.c)}${dt(a.m)}<td>${a.st==='Invited'?`<button class="btn-o" type="button" data-rev="${admins.indexOf(a)}">Revoke</button>`:''}</td></tr>`).join(''):'<tr><td colspan="5" class="empty">No administrators found</td></tr>';
+  P('aCount').textContent=L.length?`Showing ${(as.page-1)*per+1}–${Math.min(as.page*per,L.length)} of ${L.length}`:'0 administrators';
+  P('aPager').innerHTML=pagerHTML(as.page,pages);}
+P('aq').addEventListener('input',()=>{as.page=1;renderA()});P('aPer').addEventListener('change',()=>{as.page=1;renderA()});
+P('aPager').addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!b.disabled){as.page=+b.dataset.p;renderA()}});
+P('aRows').addEventListener('click',e=>{const b=e.target.closest('[data-rev]');if(!b)return;const a=admins.splice(+b.dataset.rev,1)[0];renderA();toast('Invitation for '+a.email+' revoked')});
+const aModal=P('aModal'),aForm=P('aForm'),aEmail=P('aEmail');let aFocus;
+const aOpen=()=>{aFocus=document.activeElement;aEmail.value='';aModal.classList.add('open');setTimeout(()=>aEmail.focus(),50)},aClose=()=>{aModal.classList.remove('open');aFocus&&aFocus.focus()};
+P('invBtn').addEventListener('click',aOpen);P('aCancel').addEventListener('click',aClose);
+aModal.addEventListener('click',e=>{if(e.target===aModal)aClose()});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&aModal.classList.contains('open'))aClose()});
+aForm.addEventListener('submit',e=>{e.preventDefault();const em=aEmail.value.trim().toLowerCase();if(!em)return;
+  if(admins.some(a=>a.email===em)){toast(em+' is already in the list');return}
+  admins.unshift({email:em,st:'Invited',c:now(),m:now()});as.page=1;aClose();renderA();toast('Invitation sent to '+em)});
+renderA();
+
+// ---------- ramp operations ----------
+const RST={buy:['Operation cancelled','Operation time expired','Operation declined','Purchase completed'],sell:['Payout completed','Payout completed','Payout completed','Operation declined']};
+const RTONE={'Operation cancelled':'muted','Operation time expired':'warn','Operation declined':'warn','Purchase completed':'ok','Payout completed':'ok'};
+const RDIR={buy:'Crypto purchase',sell:'Crypto sale'};
+const rops=[];const rt0=new Date(2026,8,22,11,40).getTime();
+for(let i=0;i<34;i++){const dir=rnd()<.38?'buy':'sell',u=XUSERS[Math.floor(rnd()*XUSERS.length)],eth=rnd()<.8;
+  rops.push({dir,st:RST[dir][Math.floor(rnd()*4)],id:`01a0${hex()}-${hex()}-7${hex().slice(1)}-${['8','9','a','b'][Math.floor(rnd()*4)]}${hex().slice(1)}-${hex()}${hex()}${hex()}`,prov:'Paybis',
+    m:dir==='buy'?'early-access-credit-card':'early-access-credit-card-out',fiat:dir==='buy'?[15,15,60,100,250][Math.floor(rnd()*5)]:Math.round((5.8+rnd()*3)*100)/100,cur:rnd()<.85?'EUR':'USD',
+    crypto:eth?Math.round((.0048+rnd()*.0014)*1e4)/1e4:Math.round((.001+rnd()*.0004)*1e8)/1e8,asset:eth?'ETH-SEPOLIA':'BTC-TESTNET',email:u[0],uid:u[1],t:rt0-Math.floor(rnd()*30*864e5)})}
+rops.sort((a,b)=>b.t-a.t);
+P('rSt').innerHTML='<option value="">All states</option>'+[...new Set([...RST.buy,...RST.sell])].map(s=>`<option>${s}</option>`).join('');
+const rs={page:1};
+function renderR(){const q=P('rq').value.trim().toLowerCase(),d=P('rDir').value,st=P('rSt').value;
+  const L=rops.filter(o=>(!d||o.dir===d)&&(!st||o.st===st)&&(!q||o.id.includes(q)||o.email.includes(q)||o.uid.includes(q)));
+  const per=+P('rPer').value,pages=Math.max(1,Math.ceil(L.length/per));rs.page=Math.min(rs.page,pages);const S=L.slice((rs.page-1)*per,rs.page*per);
+  P('rRows').innerHTML=S.length?S.map(o=>{const [dd,hh]=dstr(o.t);return`<tr><td class="oid"><a href="#ramp" title="${o.id}">${o.id}</a></td><td>${RDIR[o.dir]}</td><td><span class="badge ${RTONE[o.st]}">${o.st}</span></td><td><b style="font-weight:600">${o.prov}</b></td><td class="mth">${o.m}</td><td class="amt">${o.fiat} ${o.cur}</td><td class="amt">${o.crypto} ${o.asset}</td><td>${o.email}</td><td class="dt"><b>${dd}</b>${hh}</td></tr>`}).join(''):'<tr><td colspan="9" class="empty">No operations match these filters</td></tr>';
+  P('rCount').textContent=L.length?`Showing ${(rs.page-1)*per+1}–${Math.min(rs.page*per,L.length)} of ${L.length}`:'0 operations';
+  P('rPager').innerHTML=pagerHTML(rs.page,pages);}
+['rq','rDir','rSt','rPer'].forEach(id=>P(id).addEventListener(id==='rq'?'input':'change',()=>{rs.page=1;renderR()}));
+P('rPager').addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!b.disabled){rs.page=+b.dataset.p;renderR()}});
+renderR();
+
+// ---------- mobile user (opened from the users table) ----------
+const p2=n=>String(n).padStart(2,'0');
+users.forEach((u,i)=>{const day=6+(i*5)%22;u.created=`${p2(day)}.08.2026, ${p2(9+(i*7)%10)}:${p2((i*13+8)%60)}`;u.day1=`${p2(day)}.08`;
+  u.wallet='wallet-'+hex()+hex()+hex()+hex()+hex()+hex()+hex()+hex();u.wdId=`01a0${hex()}-${hex()}-7${hex().slice(1)}-a${hex().slice(1)}-${hex()}${hex()}${hex()}`;});
+function userData(u){
+  if(!u.bal)return{stats:[0,0,0,0,0],labels:[],series:[],bars:[],snap:[['TRX',0,0],['USDT-TRC20',0,0]],wd:[]};
+  const wdV=Math.round(u.bal*.86)/100,depV=Math.round((u.bal+wdV)*100)/100,d1=Math.round(depV*50.4)/100,d2=Math.round((depV-d1)*100)/100;
+  return{stats:[3,depV,1,wdV,4],labels:[u.day1,'02.09'],series:[{n:'TRX · '+u.wallet,c:'#2F63D2',v:[0,0]},{n:'USDT-TRC20 · '+u.wallet,c:'#15935a',v:[Math.round((d1-wdV)*100)/100,u.bal]}],
+    bars:[[d1,wdV],[d2,0]],snap:[['TRX',0,0],['USDT-TRC20',Math.round(u.bal*100.035)/100,u.bal]],wd:[{id:u.wdId,asset:'USDT-TRC20',amt:wdV,st:'Completed',t:u.created.replace(/, .*/,', ')+'18:42'}]};}
+const niceMax=v=>{if(v<=0)return 1;const e=Math.pow(10,Math.floor(Math.log10(v))),m=v/e;return(m<=1?1:m<=2?2:m<=5?5:10)*e};
+const kfmt=v=>v>=1000?(Math.round(v/100)/10)+'k':String(Math.round(v*100)/100);
+function plotBase(host,n){host.innerHTML='';if(!n){host.innerHTML='<div class="nodata">No data yet</div>';return null}
+  const W=Math.max(260,host.clientWidth),H=host.clientHeight||240,pad={l:46,r:10,t:12,b:26};const svg=el('svg',{viewBox:`0 0 ${W} ${H}`},host);
+  return{svg,W,H,pad,iw:W-pad.l-pad.r,ih:H-pad.t-pad.b,x:i=>pad.l+(W-pad.l-pad.r)*(n===1?.5:.25+.5*i/(n-1))}}
+function uLineDraw(host,labels,series){const g=plotBase(host,labels.length);if(!g)return;const max=niceMax(Math.max(...series.flatMap(s=>s.v))),y=v=>g.pad.t+g.ih-v/max*g.ih;
+  const gr=el('g',{class:'grid'},g.svg),yl=el('g',{class:'yl'},g.svg),ax=el('g',{class:'ax'},g.svg);
+  [0,max/2,max].forEach(v=>{el('line',{x1:g.pad.l,x2:g.W-g.pad.r,y1:y(v),y2:y(v)},gr);el('text',{x:g.pad.l-8,y:y(v)+4,'text-anchor':'end'},yl).textContent='$'+kfmt(v)});
+  series.forEach(s=>{el('path',{d:s.v.map((v,i)=>(i?'L':'M')+g.x(i)+','+y(v)).join(''),fill:'none',stroke:s.c,'stroke-width':2.4,'stroke-linecap':'round'},g.svg);
+    s.v.forEach((v,i)=>el('circle',{cx:g.x(i),cy:y(v),r:3.5,fill:'#fff',stroke:s.c,'stroke-width':2},g.svg))});
+  labels.forEach((d,i)=>el('text',{x:g.x(i),y:g.H-6,'text-anchor':'middle'},ax).textContent=d);}
+function uBarDraw(host,labels,bars){const g=plotBase(host,labels.length);if(!g)return;const top=niceMax(Math.max(...bars.map(b=>b[0]))),bot=Math.max(top*.25,niceMax(Math.max(...bars.map(b=>b[1]))));
+  const y0=g.pad.t+g.ih*top/(top+bot),s=g.ih/(top+bot),gr=el('g',{class:'grid'},g.svg),yl=el('g',{class:'yl'},g.svg),ax=el('g',{class:'ax'},g.svg),bw=Math.min(34,g.iw*.09);
+  [top,top/2].forEach(v=>{el('line',{x1:g.pad.l,x2:g.W-g.pad.r,y1:y0-v*s,y2:y0-v*s},gr);el('text',{x:g.pad.l-8,y:y0-v*s+4,'text-anchor':'end'},yl).textContent=kfmt(v)});
+  el('text',{x:g.pad.l-8,y:y0+4,'text-anchor':'end'},yl).textContent='0';
+  bars.forEach((b,i)=>{if(b[0])el('rect',{x:g.x(i)-bw/2,y:y0-b[0]*s,width:bw,height:Math.max(1.5,b[0]*s),rx:4,fill:'#15935a'},g.svg);if(b[1])el('rect',{x:g.x(i)-bw/2,y:y0,width:bw,height:Math.max(2,b[1]*s),rx:2,fill:'#e5484d'},g.svg)});
+  el('line',{class:'zero',x1:g.pad.l,x2:g.W-g.pad.r,y1:y0,y2:y0},g.svg);labels.forEach((d,i)=>el('text',{x:g.x(i),y:g.H-6,'text-anchor':'middle'},ax).textContent=d);}
+let uCur=null;
+function drawUser(){if(!uCur)return;uLineDraw(P('uLine'),uCur.labels,uCur.series);uBarDraw(P('uBar'),uCur.labels,uCur.bars)}
+function showUser(id){const u=users.find(x=>x.id===id)||users[0],d=userData(u);uCur=d;
+  P('uEmail').textContent=u.email;P('uId').textContent=u.id;P('uCreated').textContent=u.created;
+  const S=[['Deposits',d.stats[0],'pos'],['Deposit volume',fmt(d.stats[1])+'<small>$</small>','pos'],['Withdrawals',d.stats[2],'neg'],['Withdrawal volume',fmt(d.stats[3])+'<small>$</small>','neg'],['Transactions',d.stats[4],'acc']];
+  P('uStats').innerHTML=S.map(s=>`<div class="stat" style="--c:var(--${s[2]})"><span class="lb"><i></i>${s[0]}</span><b>${s[1]}</b></div>`).join('');
+  P('uLg').innerHTML=d.series.map(s=>`<span style="--c:${s.c}"><i></i>${s.n}</span>`).join('');
+  P('uSnap').innerHTML=d.snap.map(r=>`<tr><td class="uid">${u.wallet}</td><td><b style="font-weight:600">${r[0]}</b></td><td>${r[1].toLocaleString('ru-RU').replace(/ /g,' ')}</td><td>${fmt(r[2])} $</td></tr>`).join('');
+  P('uTurn').innerHTML=d.labels.length?d.labels.map((l,i)=>[l,d.bars[i]]).reverse().map(r=>`<tr><td>${r[0]}</td><td>${fmt(r[1][0])} $</td><td>${fmt(r[1][1])} $</td></tr>`).join(''):'<tr><td colspan="3" class="empty">No turnover yet</td></tr>';
+  P('uTurnC').textContent=d.labels.length?`1–${d.labels.length} of ${d.labels.length}`:'0 days';
+  P('uWd').innerHTML=d.wd.length?d.wd.map(w=>`<tr><td class="uid">${w.id}</td><td><b style="font-weight:600">${w.asset}</b></td><td>${fmt(w.amt)} $</td><td><span class="badge ok">${w.st}</span></td><td>${w.t}</td></tr>`).join(''):'<tr><td colspan="5" class="empty">No withdrawal operations</td></tr>';
+  drawUser();}
+let urz;addEventListener('resize',()=>{clearTimeout(urz);urz=setTimeout(()=>{if(!document.querySelector('.view[data-v="user"]').hidden)drawUser()},150)});
+
 document.querySelectorAll('.js-spin').forEach(b=>b.addEventListener('click',()=>{b.classList.remove('spin');void b.offsetWidth;b.classList.add('spin')}));
 </script>
 </body>
