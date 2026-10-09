@@ -1486,7 +1486,7 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 /* ================= additions ================= */
 .h-hero .rot-line{display:block;height:1.12em;white-space:nowrap;overflow:visible}
 .h-hero .rot{display:inline-block;white-space:nowrap;color:var(--acc-soft);font-size:calc(var(--rs,1) * 1em);line-height:1.12em;vertical-align:top;will-change:transform,opacity}
-.ind{display:flex;flex-direction:column;gap:12px;margin-top:56px}
+.ind{display:flex;flex-wrap:wrap;gap:10px;margin-top:56px}
 .ind-row{display:flex;flex-wrap:wrap;gap:10px}
 .ind-chip{display:inline-flex;align-items:center;height:54px;padding:0 22px;border-radius:40px;background:var(--white);font:500 clamp(15px,1.2vw,18px)/1 var(--font);letter-spacing:-.03em;box-shadow:inset 0 0 0 1px var(--line);transition:background .35s var(--ease),color .35s,transform .5s var(--spring),box-shadow .35s}
 .ind-chip:hover{background:var(--acc-soft);color:#fff;transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(47,99,210,.55)}
@@ -1609,14 +1609,20 @@ body{font-size:var(--fs-body)}
   .farrow{display:none}
 }
 @media (max-width:860px){
+  /* three heights for everything button-like on small screens */
+  :root{
+    --m-btn:48px;    /* buttons, header pill and header button, round icon buttons */
+    --m-pill:40px;   /* pills: industries, logo pill in the card, review switches */
+    --m-label:32px;  /* small labels: hero labels, card tags */
+  }
   .panel-bg{opacity:.24;height:760px;object-position:80% 0}
   .wrap{width:calc(100% - 32px)}
   .section{padding:90px 0}
   .nav{top:16px;left:16px;right:16px}
-  .nav-pill{padding:12px 18px 12px 14px}
+  .nav-pill{height:var(--m-btn);padding:0 18px 0 14px}
   .nav-pill img{height:28px}
-  .nav-r .btn{height:52px;padding-left:20px;font-size:15px}
-  .nav-r .btn .dot{width:34px;height:34px}
+  .nav-r .btn{height:var(--m-btn);padding-left:20px;font-size:15px}
+  .nav-r .btn .dot{width:32px;height:32px}
   .nav-pill nav,.nav-r .lang{display:none}
   .frame{inset:10px;border-radius:26px}
   .hero-in{padding:92px 20px 18px}
@@ -1629,14 +1635,18 @@ body{font-size:var(--fs-body)}
   .intro-done .hero-in .sub.appear,.intro-done .hero-in .btns .btn.appear{transition:none}
   .hero-in .sub{margin-top:0;max-width:none}
   .hero-in .btns{margin-top:16px;gap:8px}
-  .hero-in .btns .btn{height:46px}
+  .hero-in .btns .btn{height:var(--m-btn)}
+  .fx-switch button,.vsw button{height:calc(var(--m-pill) - 8px)}
+  .ft-soc a,.ft-ic{width:var(--m-btn);height:var(--m-btn)}
+  .bcard.after .mark{height:var(--m-pill);margin:-5px 0 -5px -4px}
+  .ind-chip{height:var(--m-pill);padding:0 16px}
   .hero-bottom{margin-top:28px;flex-direction:column;align-items:stretch}
   /* phone-only placement of the windows around the tablet (off: the windows use the same placement as on wide screens)
   .tp-far{--x:-255px!important;--y:-150px!important;--w:250px!important}
   .tp-back{--x:-295px!important;--y:170px!important;--w:230px!important}
   .tp-side{--x:650px!important;--y:-35px!important;--w:270px!important} */
   .hero-bottom .badges{flex-wrap:nowrap;gap:6px}
-  .hero-bottom .chip{height:30px;padding:0 10px;font-size:12.5px;gap:6px;white-space:nowrap}
+  .hero-bottom .chip{height:var(--m-label);padding:0 10px;font-size:12.5px;gap:6px;white-space:nowrap}
   .stat-card{width:100%}
   .stat-card .tile{width:110px}
   .stat-card .lbl,.stat-card .vrow .up{font-size:14px}
@@ -1674,6 +1684,10 @@ body{font-size:var(--fs-body)}
   .ba-intro h2 .l2{padding-left:0}
   .bcard{min-height:0}
   .scard{position:relative;top:0;grid-template-columns:1fr;height:auto}
+  /* one card per item: the text and its illustration share a single white card, the text has no card of its own
+     (to bring the separate inner cards back, remove the two lines below) */
+  .scard{background:var(--white);box-shadow:none}
+  .scard .txt{background:none;border-radius:0}
   /* every illustration block has the height of the photo blocks (taller values kept, off: .ph-flow 470px, .ph-float 400px, .ph-ramp 420px) */
   .scard .ph,.scard .ph-flow,.scard .ph-float,.scard .ph-ramp{height:320px}
   /* the drawn illustrations use the block a little more fully */
@@ -1695,8 +1709,9 @@ body{font-size:var(--fs-body)}
   .dash .kpi{padding:10px}
   .dash .kpi .v{font-size:17px}
   .panel{margin:0 10px;padding:80px 0}
-  .wl-ph{min-height:560px;padding:0}
-  .wl-ph .cust-glass{left:14px;top:46%;width:60%;padding:18px}
+  /* a quarter lower than before (was min-height:560px, panel at top:46%, width:60%) */
+  .wl-ph{min-height:420px;padding:0}
+  .wl-ph .cust-glass{left:14px;top:50%;width:max(60%,212px);padding:18px}
   .cust-glass .f{margin-top:8px}.cust-glass .inp{height:36px}.cust-glass .sw i{width:24px;height:24px}.cust-glass b.small{font-size:16px!important}
   .wl-phone{width:min(250px,64vw)}
   .tl-t{align-items:flex-start}
@@ -1755,7 +1770,7 @@ body{font-size:var(--fs-body)}
 @media (max-width:860px) and (max-height:700px){
   .hero-in{padding-top:84px}
   .h-hero{font-size:clamp(27px,8vw,31px)}
-  .hero-in .btns .btn{height:42px}
+  .hero-in .btns .btn{height:var(--m-btn)}
   .hero-in .btns{margin-top:12px}
   .hero-bottom{margin-top:18px}
 }
@@ -1782,7 +1797,11 @@ body{font-size:var(--fs-body)}
     --m-gap:10px;       /* gap between neighbouring cards */
     --m-head:20px;      /* from a card's top row (label, icon, number) to its heading */
     --m-act:20px;       /* from the text to the button under it */
+    --m-ico:40px;       /* card icon */
   }
+  /* card icons: one size and one line weight (the small icons inside the cost diagram keep their own size) */
+  .bico:not(.nb){width:var(--m-ico);height:var(--m-ico)}
+  .bico:not(.nb) .i1,.bico:not(.nb) .i3{stroke-width:calc(var(--ico-w) + .25)}
   .section{padding:60px 0}
   .panel{padding:60px 0}
   .panel .wrap{width:calc(100% - 24px)}
@@ -1800,9 +1819,9 @@ body{font-size:var(--fs-body)}
   .stack{margin-top:44px;gap:var(--m-gap)}
   .scard{padding:var(--m-frame);gap:var(--m-frame)}
   .scard .txt{padding:var(--m-pad)}
-  .stack .scard .tag{height:36px;padding:0 14px 0 4px;gap:8px}
-  .stack .scard .tag .ti{width:28px;height:28px}
-  .stack .scard .tag svg{width:15px;height:15px}
+  .stack .scard .tag{height:var(--m-label);padding:0 13px 0 4px;gap:8px}
+  .stack .scard .tag .ti{width:24px;height:24px}
+  .stack .scard .tag svg{width:14px;height:14px}
   .stack .scard .n{font-size:20px}
   .stack .scard h3{margin-top:var(--m-head)}
   .scard p{margin-top:10px}
@@ -1814,7 +1833,8 @@ body{font-size:var(--fs-body)}
   .cost-card{padding:20px 14px}
   .gro-bento{margin-top:28px;gap:var(--m-gap)}
   .gro-list{gap:var(--m-gap)}
-  .gro-item{padding:var(--m-pad);grid-template-columns:38px minmax(0,1fr);gap:12px}
+  /* icon on top, then the heading and the text, as in the cards under the first screen (icon beside the text kept, off: grid-template-columns:38px minmax(0,1fr);gap:12px) */
+  .gro-item{padding:var(--m-pad);grid-template-columns:minmax(0,1fr);gap:var(--m-head)}
   .gro-dash{padding:12px}
   .nc-cards{margin-top:36px;gap:var(--m-gap)}
   .nccard{padding:var(--m-pad);min-height:0}
@@ -1826,7 +1846,9 @@ body{font-size:var(--fs-body)}
   .wl-card{padding:var(--m-pad)}
   .wl-card .btn{margin-top:var(--m-act)}
   .wl-item{padding:18px 0;grid-template-columns:40px 1fr;gap:14px}
-  .ind{margin-top:36px}
+  /* smaller chips on phones */
+  .ind{margin-top:36px;gap:8px}
+  .ind-chip{height:var(--m-pill);padding:0 14px;font-size:14px}
   .gl-grid{margin-top:40px;gap:var(--m-gap)}
   .gcard{padding:var(--m-pad)}
   .gcard h3{margin-top:var(--m-head)}
@@ -1841,6 +1863,11 @@ body{font-size:var(--fs-body)}
   .chead h2{font-size:23px}
   /* every eyebrow label on phones: one size, weight and tracking */
   .stack .scard .tag,.bcard .mark-t{font:600 var(--fs-micro)/1 var(--font);letter-spacing:.12em}
+}
+/* narrow phones: industry chips one more step smaller so two fit in a line more often */
+@media (max-width:372px){
+  .ind{gap:6px}
+  .ind-chip{padding:0 12px;font-size:13px}
 }
 </style>
 </head>
@@ -2131,7 +2158,7 @@ body{font-size:var(--fs-body)}
             <span class="fx-ic">$</span><div class="fx-t"><b>Your revenue</b><span>Earned from every transaction</span></div><em>+$18.00</em>
           </div>
         </div></div></div></article>
-      <article class="scard" style="--i:2" data-fx="office"><div class="txt"><div class="top"><span class="tag"><i class="ti"><svg><use href="#i-swap"/></svg></i>MONETIZE SWAPS</span><span class="n">03</span></div><h3 class="h-sm">Exchange Revenue</h3><p class="small muted">Keep exchanges inside your product. Set your own markup and earn whenever customers swap between supported assets.</p><div class="fx-switch" role="group" aria-label="Illustration variant"><button type="button" class="on" data-fx="office">Office</button><button type="button" data-fx="hands">In hands</button></div><a class="btn block arr" href="#" data-contact-open><span class="roll"><span>Talk to an Expert</span><span aria-hidden="true">Talk to an Expert</span></span><i class="dot"><svg><use href="#arr"/></svg></i></a></div><div class="ph"><img data-v="office" src="assets/rev-swap-office.webp" alt="" loading="lazy" width="1500" height="1500"><img data-v="hands" src="assets/rev-swap-hands.webp" alt="" loading="lazy" width="1500" height="1500" hidden><img data-v="phone" src="assets/rev-swap.webp" alt="" loading="lazy" hidden></div></article>
+      <article class="scard" style="--i:2" data-fx="hands" data-fx-lock="hands"><div class="txt"><div class="top"><span class="tag"><i class="ti"><svg><use href="#i-swap"/></svg></i>MONETIZE SWAPS</span><span class="n">03</span></div><h3 class="h-sm">Exchange Revenue</h3><p class="small muted">Keep exchanges inside your product. Set your own markup and earn whenever customers swap between supported assets.</p><div class="fx-switch" role="group" aria-label="Illustration variant"><button type="button" data-fx="office">Office</button><button type="button" class="on" data-fx="hands">In hands</button></div><a class="btn block arr" href="#" data-contact-open><span class="roll"><span>Talk to an Expert</span><span aria-hidden="true">Talk to an Expert</span></span><i class="dot"><svg><use href="#arr"/></svg></i></a></div><div class="ph"><img data-v="office" src="assets/rev-swap-office.webp" alt="" loading="lazy" width="1500" height="1500" hidden><img data-v="hands" src="assets/rev-swap-hands.webp" alt="" loading="lazy" width="1500" height="1500"><img data-v="phone" src="assets/rev-swap.webp" alt="" loading="lazy" hidden></div></article>
       <article class="scard" style="--i:3"><div class="txt"><div class="top"><span class="tag"><i class="ti"><svg><use href="#i-card"/></svg></i>MONETIZE DAILY SPEND</span><span class="n">04</span></div><h3 class="h-sm">Crypto Card Revenue</h3><p class="small muted">Provide crypto cards to your customers for everyday spending. Your business earns from their card transactions.</p><a class="btn block arr" href="#" data-contact-open><span class="roll"><span>Talk to an Expert</span><span aria-hidden="true">Talk to an Expert</span></span><i class="dot"><svg><use href="#arr"/></svg></i></a></div><div class="ph"><img src="assets/rev-card.webp" alt="" loading="lazy"></div></article>
       <article class="scard" style="--i:4"><div class="txt"><div class="top"><span class="tag"><i class="ti"><svg><use href="#i-fuel"/></svg></i>MONETIZE GAS FEES</span><span class="n">05</span></div><h3 class="h-sm">Gas Fee Revenue</h3><p class="small muted">Let customers pay gas fees with stablecoins instead of native tokens. Manage transaction fees and earn revenue.</p><a class="btn block arr" href="#" data-contact-open><span class="roll"><span>Talk to an Expert</span><span aria-hidden="true">Talk to an Expert</span></span><i class="dot"><svg><use href="#arr"/></svg></i></a></div><div class="ph"><img src="assets/rev-gas.webp" alt="" loading="lazy"></div></article>
       <article class="scard" style="--i:5" data-fx="check"><div class="txt"><div class="top"><span class="tag"><i class="ti"><svg><use href="#i-shield"/></svg></i>MONETIZE RISK CHECKS</span><span class="n">06</span></div><h3 class="h-sm">AML Revenue</h3><p class="small muted">Give your customers control over AML risk directly from your wallet. Set your price for AML checks and earn additional revenue.</p><div class="fx-switch" role="group" aria-label="Illustration variant"><button type="button" class="on" data-fx="check">Check flow</button><button type="button" data-fx="single">One screen</button><button type="button" data-fx="anim" hidden>Animated</button><button type="button" data-fx="slide" hidden>3D slide</button></div><a class="btn block arr" href="#" data-contact-open><span class="roll"><span>Talk to an Expert</span><span aria-hidden="true">Talk to an Expert</span></span><i class="dot"><svg><use href="#arr"/></svg></i></a></div><div class="ph ph-flow"><div class="fc ac" data-v="check" aria-hidden="true">
@@ -2356,7 +2383,8 @@ body{font-size:var(--fs-body)}
       <div><span class="micro rv">INDUSTRIES</span><h2 class="h-xl two words" data-split-two data-fill>Different industries.|Clear business value.</h2></div>
       <p class="lead muted rv">Talk to a BitHide expert to discuss the opportunities a branded wallet opens up for your business.</p>
     </div>
-    <div class="ind"><div class="ind-row"><span class="ind-chip rv" style="--d:0">iGaming</span><span class="ind-chip rv" style="--d:1">Online Trading Platforms</span><span class="ind-chip rv" style="--d:2">Payment Service Providers (PSPs)</span><span class="ind-chip rv" style="--d:3">CEX, DEX, OTC</span><span class="ind-chip rv" style="--d:4">Fintech Services &amp; Neobanks</span></div><div class="ind-row"><span class="ind-chip rv" style="--d:5">GameFi &amp; Web3 Projects</span><span class="ind-chip rv" style="--d:6">CPA &amp; Affiliate Networks</span><span class="ind-chip rv" style="--d:7">E-commerce &amp; Retail</span><span class="ind-chip rv" style="--d:8">Software Development Companies</span><span class="ind-chip rv" style="--d:9">Luxury Retail</span><span class="ind-chip rv" style="--d:10">Legal Firms</span><span class="ind-chip rv" style="--d:11">Consulting Firms</span></div></div>
+    <!-- one flow of chips; earlier they were split into two rows (a second row started at "GameFi & Web3 Projects") -->
+    <div class="ind"><span class="ind-chip rv" style="--d:0">iGaming</span><span class="ind-chip rv" style="--d:1">Online Trading Platforms</span><span class="ind-chip rv" style="--d:2">Payment Service Providers (PSPs)</span><span class="ind-chip rv" style="--d:3">CEX, DEX, OTC</span><span class="ind-chip rv" style="--d:4">Fintech Services &amp; Neobanks</span><span class="ind-chip rv" style="--d:5">GameFi &amp; Web3 Projects</span><span class="ind-chip rv" style="--d:6">CPA &amp; Affiliate Networks</span><span class="ind-chip rv" style="--d:7">E-commerce &amp; Retail</span><span class="ind-chip rv" style="--d:8">Software Development Companies</span><span class="ind-chip rv" style="--d:9">Luxury Retail</span><span class="ind-chip rv" style="--d:10">Legal Firms</span><span class="ind-chip rv" style="--d:11">Consulting Firms</span></div>
   </div>
 </section>
 
