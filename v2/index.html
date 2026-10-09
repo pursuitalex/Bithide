@@ -1224,10 +1224,10 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 .jr-st.on{opacity:1}
 .jr-row{display:flex;align-items:center;gap:14px}
 .bico.jr-ic{width:clamp(40px,3.4vw,48px);height:clamp(40px,3.4vw,48px)}
-.jr-n{font:700 14px/1 var(--font);letter-spacing:.12em;color:var(--acc)}
+.jr-n{font:700 14px/1 var(--font);letter-spacing:.12em;color:var(--acc);display:none} /* display:none - numbers beside the step icons are off; remove it to bring them back */
 .jr-st h4{margin-top:clamp(16px,1.6vw,22px);font:600 clamp(24px,2.2vw,32px)/1.12 var(--font);letter-spacing:-.04em}
 .jr-st p{margin-top:12px;max-width:44ch;font-size:var(--fs-body);line-height:1.55;color:var(--ink-2)}
-@media (max-width:860px){
+@media (max-width:767px){
   .jr{--sh:clamp(230px,36vh,320px);--stH:clamp(230px,40vh,320px);--pad:0px;grid-template-columns:1fr;gap:0}
   .jr-left{top:92px;z-index:2}
   .jr-steps{margin-top:20px}
@@ -1502,6 +1502,16 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 .ft-addr p:first-child{font-weight:600;color:var(--ink-2)}
 @media (max-width:1100px){.ft-top{grid-template-columns:1fr 1fr}.ft-feat{grid-column:1 / -1}.ft-brand{grid-column:1 / -1;order:-1}.ft-bot{grid-template-columns:1fr}}
 @media (max-width:860px){.ft{margin:16px 10px 10px}.ft-card{border-radius:26px}.ft-feat ul{column-count:1}}
+/* tablets (768-1100px): nothing is left hanging in a single column. The brand block uses both columns (logo, mail, socials and contact buttons
+   on the left; legal links on the right), the features list stays in two columns, the address stands beside the disclaimer */
+@media (min-width:768px) and (max-width:1100px){
+  .ft-brand{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(24px,3vw,48px);row-gap:18px;align-items:start;justify-items:start;
+    grid-template-areas:"logo legal" "mail legal" "soc legal" "cta legal"}
+  .ft-logo{grid-area:logo}.ft-mail{grid-area:mail}.ft-soc{grid-area:soc}.ft-cta{grid-area:cta}.ft-legal{grid-area:legal}
+  .ft-feat ul{column-count:2}
+  .ft-top{row-gap:clamp(48px,6vw,60px)} /* twice the usual gap between the brand block, the features and the two link lists */
+  .ft-bot{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+}
 
 
 /* ================= additions ================= */
@@ -1613,6 +1623,15 @@ body{font-size:var(--fs-body)}
 
 /* ================= REVENUE CARDS (pill tag, bigger number, heavier title) ================= */
 .stack .scard .tag{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px 0 5px;border-radius:40px;background:var(--tint);color:var(--acc);font:700 14px/1 var(--font);letter-spacing:.06em;text-transform:uppercase}
+/* the tag hugs its text: one line, never stretched or squeezed by the row */
+.stack .scard .tag{white-space:nowrap;flex:none}
+.scard .top{gap:10px}
+@media (min-width:768px) and (max-width:1000px){ /* narrow text column: a smaller tag so the longest label still fits beside the number */
+  .stack .scard .tag{height:36px;padding:0 14px 0 4px;gap:8px;font-size:11.5px;letter-spacing:.08em}
+  .stack .scard .tag .ti{width:28px;height:28px}
+  .stack .scard .tag svg{width:15px;height:15px}
+}
+@media (max-width:372px){.stack .scard .tag{white-space:normal;flex:0 1 auto}} /* very narrow phones: the longest label may take two lines */
 .stack .scard .tag .ti{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none;box-shadow:0 2px 8px -4px rgba(47,99,210,.35)}
 .stack .scard .tag svg{width:17px;height:17px}
 .stack .scard .n{font:500 24px/1 var(--font);letter-spacing:-.03em;color:var(--ink)}
@@ -1727,7 +1746,7 @@ body{font-size:var(--fs-body)}
   }
   .ba-intro h2 .l2{padding-left:0}
   /* revenue cards from 768px up: text on the left, illustration on the right, stacking as on wide screens (a little lower and tighter than there) */
-  .scard{height:min(500px,74vh);top:calc(84px + var(--i) * 14px)}
+  .scard{height:min(420px,74vh);top:calc(84px + var(--i) * 14px)} /* as low as the text column allows (was 500px) */
   .scard .txt{padding:26px}
   /* below 768px: one column, the text and its illustration in a single card */
   @media (max-width:767px){
@@ -1749,6 +1768,10 @@ body{font-size:var(--fs-body)}
   .scard .ph-flow .fc{font-size:min(3cqw,3.1cqh)}
   .fx-switch{margin-top:20px}
   }
+  /* launch steps from 768px up: pinned screen on the left and steps on the right, as on wide screens (a lower screen and a smaller gap) */
+  .jr{--sh:clamp(340px,46vh,460px);--stH:clamp(250px,34vh,340px);gap:32px}
+  .jr-steps{padding-left:30px}
+  @media (max-width:767px){
   /* launch steps on small screens: no pinned screen and no switching. Each step is its text followed by its own illustration.
      (The pinned, scroll-driven version stays for wide screens; removing this group brings it back here too.) */
   .jr{display:flex;flex-direction:column;gap:14px}
@@ -1766,6 +1789,7 @@ body{font-size:var(--fs-body)}
   .jr-steps .jr-st:nth-child(4){order:5}.jr-screen .jr-vis:nth-child(5){order:6}
   .jr-steps .jr-st:nth-child(5){order:7}.jr-screen .jr-vis:nth-child(6){order:8}
   .jr-steps .jr-st:nth-child(6){order:9}.jr-screen .jr-vis:nth-child(7){order:10}
+  }
   .track{grid-template-columns:1fr;gap:8px}
   .track::before,.track .fill{display:none}
   .gro-bento{grid-template-columns:minmax(0,1fr);margin-top:40px}
@@ -1774,7 +1798,8 @@ body{font-size:var(--fs-body)}
   .gro-item{padding:20px;grid-template-columns:44px minmax(0,1fr);gap:14px}
   .gro-dash{padding:16px;border-radius:24px}
   .gro-dash .dash .kpi{padding:10px}.gro-dash .dash .kpi .v{font-size:17px}
-  .gro-dash .dash .lists{grid-template-columns:1fr}
+  /* dashboard: the two lists stand side by side from 768px up, one under the other below that */
+  @media (max-width:767px){.gro-dash .dash .lists{grid-template-columns:1fr}}
   .gd-sp{display:none}
   .gd-lg{display:none}
   .dash .kpis{gap:6px}
@@ -1790,8 +1815,12 @@ body{font-size:var(--fs-body)}
   .cust:not(.cust-glass){flex:none;width:100%}
   .uc{grid-template-columns:1fr;min-height:0;padding:12px;padding-top:280px}
   .uc .gl.gain{justify-self:stretch}
-  .gl-grid{grid-template-columns:1fr}
+  /* go-live cards: two columns from 768px up (the fifth card takes the full width), one column below */
+  .gl-grid{grid-template-columns:1fr 1fr}
   .gcard,.gcard.w{grid-column:auto;min-height:0}
+  .gl-grid .gcard:last-child:nth-child(odd){grid-column:1 / -1}
+  .gcard{padding:28px}
+  @media (max-width:767px){.gl-grid{grid-template-columns:1fr}.gl-grid .gcard:last-child:nth-child(odd){grid-column:auto}}
   .phases{flex-direction:column;height:auto}
   .phase{min-height:74px;padding-left:92px}
   .phase .ph-ic{position:absolute;left:18px;top:23px;margin:0;width:56px;height:56px;border-radius:18px}
@@ -1815,6 +1844,12 @@ body{font-size:var(--fs-body)}
   .fs-switch{left:12px;bottom:12px}
   .final[data-fs="md"] .fin .p1{left:auto;right:-2%;top:calc(4px + 6.94vw);width:154px}
   .final[data-fs="md"] .fin .p3{left:calc(-2% + 2.78vw);top:calc(202px + 3.47vw);width:154px}
+  /* tablets: the stage is much wider than the phone, so the floating cards are tied to the phone instead of the stage edges
+     (the phone is 230px wide and centred): one overlaps its top right corner, the other its left side */
+  @media (min-width:561px){
+    .final[data-fs="md"] .fin .p1{left:calc(50% + 48px);right:auto;top:36px}
+    .final[data-fs="md"] .fin .p3{left:calc(50% - 220px);top:232px}
+  }
   .final[data-fs="md"] .fstat .fs{padding:12px 14px;border-radius:16px}
   .final[data-fs="md"] .fstat .lbl{font-size:12px}
   .final[data-fs="md"] .fstat .v{font-size:21px}
@@ -2703,8 +2738,10 @@ function layoutScene(){
   const qx0=Math.min(...Q.map(q=>q[0])),qx1=Math.max(...Q.map(q=>q[0])),qy0=Math.min(...Q.map(q=>q[1])),qy1=Math.max(...Q.map(q=>q[1]));
   const sw=(qx1-qx0)*iw,sh=(qy1-qy0)*ih;
   let k,cx,cy;const pad=Math.max(24,W*.02);
-  const slotL=tR+40,avail=W-pad-slotL,kSide=Math.min(avail*cfg.fitW/sw,H*cfg.fitH/sh);
-  if(!mob&&kSide*sw>=W*cfg.min){k=kSide;cx=slotL+avail*(.5+(cfg.shift||0));cy=H*cfg.cy;}
+  // narrower desktops (frame under 1320px): the heading leaves little room, so the tablet is allowed to grow to the right, up to and a little past the edge
+  const over=v==='tab'?Math.max(0,Math.min(1,(1320-W)/340)):0;
+  const slotL=tR+40,avail=W-pad-slotL,kSide=Math.min(avail*(1+.45*over)*cfg.fitW/sw,H*cfg.fitH/sh);
+  if(!mob&&kSide*sw>=W*cfg.min){k=kSide;cx=slotL+avail*(.5+(cfg.shift||0))+Math.max(0,(sw*k-avail*cfg.fitW)/2);cy=H*cfg.cy;}
   else{const top=(mob?btnB:tB)+24,left=mob?W*.08:Math.max(subR+50,W*.46),wA=W-pad-left;k=Math.min(wA*cfg.fitW/sw,(H-top)/(cfg.vis*sh));if(mob)k=Math.min(k,(W*.84)/sw);cx=mob?W/2:left+sw*k/2;cy=top+sh*k/2;}
   const cover=Math.max(W/iw,H/ih);const gap=cfg.gap||mob;if(!gap)k=Math.max(k,cover);
   let ox=cx-(qx0*iw+sw/2)*k,oy=cy-(qy0*ih+sh/2)*k;
@@ -2983,7 +3020,7 @@ cForm.addEventListener('submit',e=>{e.preventDefault();if(!cForm.reportValidity(
 /* ---- journey (#phases): active step follows scroll, rail fills ---- */
 (()=>{const root=document.getElementById('phases');if(!root||!root.classList.contains('jr'))return;
   const st=[...root.querySelectorAll('.jr-st')],vis=[...root.querySelectorAll('.jr-vis')],cnt=[...root.querySelectorAll('.jr-count i')],big=document.getElementById('jrBig'),steps=document.getElementById('jrSteps'),left=root.querySelector('.jr-left');let cur=0,raf=0;
-  const tick=()=>{raf=0;const lb=left.getBoundingClientRect();const mob=innerWidth<=860;const line=mob?lb.bottom+(innerHeight-lb.bottom)*.35:innerHeight*.5;
+  const tick=()=>{raf=0;const lb=left.getBoundingClientRect();const mob=innerWidth<768;const line=mob?lb.bottom+(innerHeight-lb.bottom)*.35:innerHeight*.5;
     let k=0;st.forEach((s,i)=>{if(s.getBoundingClientRect().top+s.offsetHeight*.3<line)k=i});
     const rail=steps.querySelector('.jr-rail'),r=rail.getBoundingClientRect();rail.style.setProperty('--p',Math.max(0,Math.min(1,(line-r.top)/r.height))*100+'%');
     if(k!==cur){cur=k;st.forEach((s,i)=>s.classList.toggle('on',i===k));vis.forEach((v,i)=>v.classList.toggle('on',i===k));cnt.forEach((c,i)=>c.classList.toggle('on',i<=k));big.textContent='0'+(k+1)}};
