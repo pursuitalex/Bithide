@@ -856,6 +856,12 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 @media (prefers-reduced-motion:reduce){.sk-d .fl{animation:none}}
 /* side-by-side comparison: money path with a third party vs with your own wallet */
 .cmp-h{display:flex;align-items:center;gap:12px}
+/* vertical layout of the infographic (class "v" is set by the script on phones): labels to the right of the nodes, tags placed by the script */
+.sk-d.v .sk-node:not(.zz):not(.yy) span{left:calc(100% + 12px);right:auto;top:50%;transform:translateY(-50%);width:auto;white-space:nowrap;text-align:left;font-size:14px}
+.sk-tags.abs.v{transform:none;align-items:flex-start}
+/* vertical layout: the round nodes are clearly wider than the widest ribbon (46px), so it never shows beside them */
+.sk-d.v .sk-node i{width:56px;height:56px}
+.sk.good .sk-d.v .sk-node.mid i{width:64px;height:64px}
 .sk-node .nb{display:none}
 .cost-card[data-cv="flow"] .sk-node i > svg{display:none}
 .cost-card[data-cv="flow"] .sk-node .nb{display:grid;width:34px;height:34px;--ico-w:2.7}
@@ -1231,8 +1237,12 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 .jr-ui{position:absolute;left:7%;right:7%;top:clamp(84px,18%,120px);bottom:7%;container-type:size}
 .jr-shot[hidden]{display:none}
 /* step 4: API card */
-.api{display:grid;place-items:center;font:500 min(2.35cqw,4.3cqh)/1.3 var(--font);color:var(--ink)}
-.api-c{width:min(100%,27em);margin-bottom:3.4em;display:flex;flex-direction:column;align-items:center;padding:2.2em 2em 1.8em;border-radius:1.8em;background:#fff;box-shadow:0 2.6em 4.4em -2em rgba(8,24,70,.65),inset 0 0 0 1px rgba(255,255,255,.9);text-align:center}
+.api{display:grid;place-items:center;font:500 min(2.6cqw,4.2cqh)/1.3 var(--font);color:var(--ink)}
+.jr-ui.jr-mid{top:7%}
+.jr-ui.jr-mid>.api{font-size:min(2.6cqw,4.2cqh)}
+@media (max-width:860px){.jr-ui.jr-mid>.api{font-size:min(3cqw,4.2cqh)}}
+.jr-pill[hidden]{display:none}
+.api-c{width:min(100%,27em);margin-bottom:0;display:flex;flex-direction:column;align-items:center;padding:2.2em 2em 1.8em;border-radius:1.8em;background:#fff;box-shadow:0 2.6em 4.4em -2em rgba(8,24,70,.65),inset 0 0 0 1px rgba(255,255,255,.9);text-align:center}
 .api-lg{width:4.6em;height:4.6em;border-radius:50%;display:grid;place-items:center;background:var(--tint);box-shadow:inset 0 0 0 .1em rgba(47,99,210,.14)}
 .api-lg img{width:62%;height:62%}
 .api-t{display:flex;align-items:center;gap:.5em;margin-top:.9em;font-size:1.5em;font-weight:600;letter-spacing:-.035em}
@@ -1242,7 +1252,7 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 .api-btn{position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center;height:3.4em;margin-top:.9em;border-radius:3em;background:var(--acc);color:#fff;font-size:1.02em;font-weight:600;letter-spacing:-.02em;box-shadow:0 1.2em 2em -1em rgba(47,99,210,.9)}
 .api-btn i{position:absolute;right:.5em;top:50%;width:2.4em;height:2.4em;margin-top:-1.2em;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--acc)}
 .api-btn i svg{width:1.05em;height:1.05em}
-@media (max-width:860px){.api-c{margin-bottom:62px}}
+/* (the card used to sit higher on small screens to leave room for the floating label: .api-c{margin-bottom:62px}) */
 .jr-ui>*{font-size:min(2.35cqw,4.3cqh);height:100%}
 /* shared mini wallet screen + devices */
 .dev{position:relative;height:100%;aspect-ratio:9/19.2;border-radius:2.6em;background:#0f1729;padding:.55em;box-shadow:0 2.4em 3.6em -1.8em rgba(8,24,70,.75),inset 0 0 0 .14em #3a4458}
@@ -1431,6 +1441,13 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 .fstat.in .spk .ln{stroke-dashoffset:0}
 .fin{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr;padding-top:clamp(80px,12vh,150px)}
 .fin .fcopy{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;clip-path:inset(-600px -600px 0 -600px round 0 0 var(--r-xl) var(--r-xl))}
+/* the card is clipped along its bottom edge (to cut the phone), which also cut its own shadow.
+   The shadow is drawn by a separate layer under the card instead, so it fades out softly below it */
+.fin{position:relative}
+.fin .fcopy{box-shadow:inset 0 0 0 1px var(--glass-bd)}
+.fin::before{content:"";position:absolute;left:0;right:0;bottom:0;top:clamp(80px,12vh,150px);border-radius:var(--r-xl);box-shadow:0 40px 80px -50px rgba(29,60,120,.35);pointer-events:none;opacity:0;transition:opacity .9s var(--ease) .15s}
+.fin:has(.fcopy.in)::before{opacity:1}
+@supports not selector(:has(*)){.fin::before{opacity:1}}
 .fin .fstage{position:relative;min-height:420px}
 .fin .fcopy{min-height:calc(clamp(250px,21vw,310px) * 2.041 + 20px);align-items:center}
 .fin .fphone{left:50%;bottom:calc(-1 * clamp(32px,3.4vw,52px) - 130px);width:clamp(250px,21vw,310px);transform:translateX(-50%)}
@@ -1439,6 +1456,7 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 /* floating stat cards over the phone: medium size (data-fs="md" on the section) next to the original one, on a review switch.
    The medium cards keep the phone-side edge of the original ones, so they overlap the phone the same way */
 .fs-switch{position:absolute;left:24px;bottom:24px;z-index:3}
+.fs-switch[hidden]{display:none}
 .final[data-fs="md"] .fin .p1{right:auto;left:calc(107% - clamp(220px,18vw,270px));top:calc(-27% + 40px + min(6.94vw,100px));width:clamp(188px,15vw,226px)}
 .final[data-fs="md"] .fin .p3{left:calc(-9% + clamp(190px,15vw,230px) - clamp(188px,15vw,226px) + min(2.78vw,40px));top:calc(45% + 40px + min(3.47vw,50px));width:clamp(188px,15vw,226px)}
 .final[data-fs="md"] .fstat .fs{padding:16px 18px 17px;border-radius:20px}
@@ -1665,7 +1683,9 @@ body{font-size:var(--fs-body)}
   .sec-head{margin-top:72px;gap:20px}
   .sec-feats{margin-top:32px}
   .sgrid{grid-template-columns:minmax(0,1fr);border-radius:24px}
-  .sfeat{grid-template-columns:40px minmax(0,1fr);column-gap:16px;align-items:start;padding:20px}
+  .sfeat{grid-template-columns:32px minmax(0,1fr);column-gap:16px;align-items:start;padding:20px}
+  /* security list: smaller icons than the card standard (was 40px) */
+  .sfeat .bico.sm{width:32px;height:32px}
   /* shield centred (left-aligned placement kept, off: justify-content:flex-start; img margin:-10px 0 0 -10px) */
   .sec-art{--sw:144px;--sx:0px;justify-content:center}
   .sec-art img{margin:-10px 0 0}
@@ -1683,17 +1703,40 @@ body{font-size:var(--fs-body)}
   .ba-cards .bcard.after{transition:transform 1s var(--ease)}
   .ba-intro h2 .l2{padding-left:0}
   .bcard{min-height:0}
-  .scard{position:relative;top:0;grid-template-columns:1fr;height:auto}
+  /* the cards gather into a deck while scrolling, as on wide screens. Each card stops under the header, a little lower than the previous one;
+     a card taller than the screen stops only when its bottom edge is in view (--ch: card height, set by the script).
+     Plain list without the deck: position:relative;top:0 */
+  .scard{position:sticky;top:calc(68px + var(--i) * 6px);top:min(calc(68px + var(--i) * 6px),calc(100svh - var(--ch,600px) - 10px));grid-template-columns:1fr;height:auto}
   /* one card per item: the text and its illustration share a single white card, the text has no card of its own
      (to bring the separate inner cards back, remove the two lines below) */
-  .scard{background:var(--white);box-shadow:none}
+  .scard{background:var(--white);box-shadow:0 -14px 30px -24px rgba(29,60,120,.4)}
   .scard .txt{background:none;border-radius:0}
   /* every illustration block has the height of the photo blocks (taller values kept, off: .ph-flow 470px, .ph-float 400px, .ph-ramp 420px) */
   .scard .ph,.scard .ph-flow,.scard .ph-float,.scard .ph-ramp{height:320px}
+  /* on shorter screens the illustration gives up some height so that a whole card fits under the header and the deck stays readable
+     (--txh: the tallest text block of the six cards, set by the script; all six illustrations stay equal) */
+  @supports (height:100svh){.scard .ph,.scard .ph-flow,.scard .ph-float,.scard .ph-ramp{height:clamp(210px,calc(100svh - var(--txh,300px) - 126px),320px)}}
   /* the drawn illustrations use the block a little more fully */
   .scard .ph-ramp .wg{font-size:min(3cqw,3.08cqh)}
   .scard .ph-flow .fc{font-size:min(3cqw,3.1cqh)}
   .fx-switch{margin-top:20px}
+  /* launch steps on small screens: no pinned screen and no switching. Each step is its text followed by its own illustration.
+     (The pinned, scroll-driven version stays for wide screens; removing this group brings it back here too.) */
+  .jr{display:flex;flex-direction:column;gap:14px}
+  .jr-left,.jr-screen,.jr-steps{display:contents}
+  .jr-big,.jr-count,.jr-rail,.jr-screen::before{display:none}
+  /* the soft highlight of the screen moves into each illustration, where it is clipped by the card */
+  .jr-vis::before{content:"";position:absolute;right:-20%;top:-26%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.24),transparent 65%);z-index:-1}
+  .jr-st{min-height:0;opacity:1;transition:none;margin-top:26px}
+  .jr-steps .jr-st:nth-child(2){margin-top:0}
+  .jr-vis{position:relative;inset:auto;height:300px;opacity:1;transform:none;transition:none;pointer-events:auto;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;
+    background:linear-gradient(150deg,#2552b5 0%,#2F63D2 45%,#4F86F0 100%)}
+  .jr-shot,.jr-photo,.jr-brief,.jr-ui{top:7%}
+  .jr-steps .jr-st:nth-child(2){order:1}.jr-screen .jr-vis:nth-child(3){order:2}
+  .jr-steps .jr-st:nth-child(3){order:3}.jr-screen .jr-vis:nth-child(4){order:4}
+  .jr-steps .jr-st:nth-child(4){order:5}.jr-screen .jr-vis:nth-child(5){order:6}
+  .jr-steps .jr-st:nth-child(5){order:7}.jr-screen .jr-vis:nth-child(6){order:8}
+  .jr-steps .jr-st:nth-child(6){order:9}.jr-screen .jr-vis:nth-child(7){order:10}
   .track{grid-template-columns:1fr;gap:8px}
   .track::before,.track .fill{display:none}
   .gro-bento{grid-template-columns:minmax(0,1fr);margin-top:40px}
@@ -1732,15 +1775,17 @@ body{font-size:var(--fs-body)}
   .fin .fphone{width:230px}
   .fin .p1{right:-2%;top:2%;width:176px}
   .fin{padding-top:0}
-  .fin .fstage{min-height:430px}
+  .fin::before{top:0}
+  /* the phone sits 50px closer to the text; the floating cards keep their place, so they hang 50px lower over the phone (was min-height:430px) */
+  .fin .fstage{min-height:380px}
   .fin .p1{top:0}
   .fin .p3{left:-2%;top:46%;width:156px}
   .fstat .fs{padding:14px 16px;border-radius:18px}
   .fstat .v{font-size:24px}
   .fstat .bars{height:44px;gap:4px}
   .fs-switch{left:12px;bottom:12px}
-  .final[data-fs="md"] .fin .p1{left:auto;right:-2%;top:calc(1% + 6.94vw);width:154px}
-  .final[data-fs="md"] .fin .p3{left:calc(-2% + 2.78vw);top:calc(47% + 3.47vw);width:154px}
+  .final[data-fs="md"] .fin .p1{left:auto;right:-2%;top:calc(4px + 6.94vw);width:154px}
+  .final[data-fs="md"] .fin .p3{left:calc(-2% + 2.78vw);top:calc(202px + 3.47vw);width:154px}
   .final[data-fs="md"] .fstat .fs{padding:12px 14px;border-radius:16px}
   .final[data-fs="md"] .fstat .lbl{font-size:12px}
   .final[data-fs="md"] .fstat .v{font-size:21px}
@@ -1831,6 +1876,7 @@ body{font-size:var(--fs-body)}
   .cduo{padding:var(--m-pad);min-height:0}
   .cduo h3{padding-top:var(--m-head)}
   .cost-card{padding:20px 14px}
+  .cost-h .vsw{display:none}
   .gro-bento{margin-top:28px;gap:var(--m-gap)}
   .gro-list{gap:var(--m-gap)}
   /* icon on top, then the heading and the text, as in the cards under the first screen (icon beside the text kept, off: grid-template-columns:38px minmax(0,1fr);gap:12px) */
@@ -1841,7 +1887,7 @@ body{font-size:var(--fs-body)}
   .nccard h3{margin-top:var(--m-head)}
   .nccard .ok{margin-top:22px;padding-top:18px}
   .sec-head{margin-top:48px}
-  .sfeat{padding:var(--m-pad);grid-template-columns:36px minmax(0,1fr);column-gap:14px}
+  .sfeat{padding:var(--m-pad);grid-template-columns:32px minmax(0,1fr);column-gap:14px}
   .wl{margin-top:40px;gap:var(--m-gap)}
   .wl-card{padding:var(--m-pad)}
   .wl-card .btn{margin-top:var(--m-act)}
@@ -2440,13 +2486,13 @@ body{font-size:var(--fs-body)}
           <div class="dv-vs"><i><svg viewBox="0 0 16 16"><path d="M3.5 8.5 6.5 11.5 12.5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div>
           <div class="dv-col"><div class="dev and"><div class="wsc"><div class="w-top"><span class="w-lg"><svg><use href="#i-mk"/></svg></span>YourBrand</div><div class="w-bal"><span>Total balance</span><b>$24,390.42</b><em>↑ 12.4%</em></div><div class="w-act"><i></i><i></i><i></i><i></i></div><div class="w-row"><i style="--c:#26a17b">T</i><span></span><b>12,420</b></div><div class="w-row"><i style="--c:#f7931a">B</i><span></span><b>8,230</b></div><div class="w-row"><i style="--c:#627eea">E</i><span></span><b>2,480</b></div><div class="w-toast t2"><i><svg viewBox="0 0 16 16"><path d="M3.5 8.5 6.5 11.5 12.5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Payment sent</div></div></div><span class="os"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17h15a7.5 7.5 0 0 0-15 0Zm4.2-3.1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm6.6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/><path d="M7.4 8.6 5.6 5.6m11 3-1.8-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Android</span></div>
         </div></div></div>
-        <div class="jr-vis"><div class="jr-ui"><div class="api"><div class="api-c">
+        <div class="jr-vis"><div class="jr-ui jr-mid"><div class="api"><div class="api-c">
           <span class="api-lg"><img src="favicon.svg" alt=""></span>
           <b class="api-t">BitHide API<em>v.1.0</em></b>
           <span class="api-m">released July 1, 2022</span>
           <span class="api-l">Download OpenAPI specification</span>
           <span class="api-btn">Download<i><svg viewBox="0 0 16 16"><path d="M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span>
-        </div></div></div><img class="jr-shot" src="assets/ph-tariffs.webp" alt="" loading="lazy" hidden><span class="jr-pill"><i class="b"><svg><use href="#ph-api"/></svg></i>APIs &amp; webhooks</span></div>
+        </div></div></div><img class="jr-shot" src="assets/ph-tariffs.webp" alt="" loading="lazy" hidden><span class="jr-pill" hidden><i class="b"><svg><use href="#ph-api"/></svg></i>APIs &amp; webhooks</span></div>
         <div class="jr-vis"><div class="jr-ui"><div class="store" id="jrStore" data-s="ios">
           <div class="st-tabs"><span class="ios"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.8-1.1-2.8-4.3zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.2.7-3 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.3-.6 3-1.4z"/></svg>App Store</span><span class="gp"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17h15a7.5 7.5 0 0 0-15 0Zm4.2-3.1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm6.6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/><path d="M7.4 8.6 5.6 5.6m11 3-1.8-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Google Play</span></div>
           <div class="st-head"><span class="st-ic"><svg><use href="#i-mk"/></svg></span><div class="st-t"><b>YourBrand Wallet</b><span>YourBrand Inc.</span><em>Finance</em></div><span class="st-get"><i class="g1">Get</i><i class="g2">Install</i></span></div>
@@ -2471,8 +2517,8 @@ body{font-size:var(--fs-body)}
 
 <!-- 15 FINAL CTA -->
 <div class="endcap">
-<section class="final" id="final" data-fbg="metal2" data-fs="md">
-  <div class="vsw fs-switch" role="group" aria-label="Floating cards size"><button type="button" class="on" data-fs="md">Medium cards</button><button type="button" data-fs="lg">Original cards</button></div>
+<section class="final" id="final" data-fbg="metal2" data-fs="md" data-fs-lock="md">
+  <div class="vsw fs-switch" role="group" aria-label="Floating cards size" hidden><button type="button" class="on" data-fs="md">Medium cards</button><button type="button" data-fs="lg">Original cards</button></div>
   <img src="assets/final-metal-2.webp" alt="" loading="lazy" id="finalBg">
   <div class="veil"></div>
   <div class="final-in">
@@ -2700,7 +2746,9 @@ document.querySelectorAll('.hv-switch').forEach(sw=>{sw.hidden=!!HERO_LOCK;sw.ad
 // floating stat cards in the final block: medium / original (review switch, ?fs=md|lg)
 (()=>{const f=document.getElementById('final'),sw=f&&f.querySelector('.fs-switch');if(!sw)return;const ok=v=>v==='md'||v==='lg';
   const set=v=>{f.dataset.fs=v;sw.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.fs===v));try{localStorage.setItem('bhFinalStats',v)}catch(e){}};
-  let v=new URLSearchParams(location.search).get('fs');if(!ok(v)){try{v=localStorage.getItem('bhFinalStats')}catch(e){}}set(ok(v)?v:'md');
+  let v=new URLSearchParams(location.search).get('fs');if(!ok(v)){try{v=localStorage.getItem('bhFinalStats')}catch(e){}}
+  // a section with data-fs-lock shows only that size: the switch stays hidden
+  const lock=f.dataset.fsLock;if(ok(lock)){v=lock;sw.hidden=true;}set(ok(v)?v:'md');
   sw.addEventListener('click',e=>{const b=e.target.closest('button');if(b)set(b.dataset.fs);});})();
 // final CTA background variants (review only): ?fbg=a|b|c, remembered per viewer
 (()=>{const f=document.getElementById('final'),img=document.getElementById('finalBg'),sw=f&&f.querySelector('.fbg-switch');if(!sw)return;
@@ -2728,18 +2776,34 @@ document.querySelectorAll('.rv,.io,.dash').forEach(el=>io.observe(el));
   sw.addEventListener('click',e=>{const b=e.target.closest('button');if(b)set(b.dataset.sh);});})();
 // cost savings infographic: two looks of the ribbons on a review switch (?cv=flow|ribbon)
 (()=>{const card=document.getElementById('costCard');if(!card)return;const sw=card.querySelector('.vsw');if(!sw)return;const ok=v=>v==='flow'||v==='ribbon';
-  const set=v=>{card.dataset.cv=v;sw.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.cv===v));try{localStorage.setItem('bhCostLook',v)}catch(e){}card.dispatchEvent(new Event('cvchange'));};
+  const phone=()=>innerWidth<=560;let cur='flow'; // phones: vertical layout, always in the first look
+  const set=v=>{cur=v;card.dataset.cv=phone()?'ribbon':v;sw.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.cv===v));try{localStorage.setItem('bhCostLook',v)}catch(e){}card.dispatchEvent(new Event('cvchange'));};
+  addEventListener('resize',()=>{const want=phone()?'ribbon':cur;if(card.dataset.cv!==want){card.dataset.cv=want;card.dispatchEvent(new Event('cvchange'));}});
   let v=new URLSearchParams(location.search).get('cv');if(!ok(v)){try{v=localStorage.getItem('bhCostLook')}catch(e){}}set(ok(v)?v:'flow');
   sw.addEventListener('click',e=>{const b=e.target.closest('button');if(b)set(b.dataset.cv);});})();
 // cost savings infographic: money ribbons. Before: 34 splits into 12 (reaches the business) + 22 (leaks away). With your wallet: 34 + 12 joining = 46.
 (()=>{const NS='http://www.w3.org/2000/svg',mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
   const cc=document.getElementById('costCard');
   document.querySelectorAll('.sk').forEach((sk,idx)=>{const d=sk.querySelector('.sk-d'),svg=d.querySelector('.sk-svg'),tags=sk.querySelector('.sk-tags'),good=sk.classList.contains('good');
-    const draw=()=>{const W=d.clientWidth,H=d.clientHeight;if(!W)return;svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML='';
+    const draw=()=>{const W=d.clientWidth;if(!W)return;
+      // phones: the flow runs from top to bottom along a vertical axis, the labels stand to the right of the nodes.
+      // The side branch goes sideways when the tags fit next to it, otherwise it turns and the tags sit under / above it.
+      const vert=innerWidth<=560,nodes=[...d.querySelectorAll('.sk-node')],ax=30,y0=30;let V=null;d.classList.toggle('v',vert);tags.classList.toggle('v',vert);
+      nodes.forEach(n=>{if(n.dataset.l==null)n.dataset.l=n.style.left;if(!vert){n.style.left=n.dataset.l;n.style.top='';}});
+      if(vert){tags.classList.add('abs');tags.style.left=tags.style.top='';const tw=tags.offsetWidth,th=tags.offsetHeight,side=W-tw-8>=ax+17+44;
+        if(!good){const ym=y0+128;
+          if(side){const ey=ym+64,tl=W-tw,ex=tl-30;V={ym,yb:Math.max(ey+th/2+38,ym+142),ex,ey,tl,tt:ey-th/2,br:'M'+(ax+6)+' '+ym+'V'+(ym+26)+'C'+(ax+6)+' '+(ym+50)+' '+(ax+22)+' '+ey+' '+(ax+46)+' '+ey+'H'+ex,ah:'M'+ex+' '+(ey-19)+'L'+(ex+22)+' '+ey+'L'+ex+' '+(ey+19)+'Z'};}
+          else{const ey=ym+92,ex=Math.max(tw/2,Math.min(W-tw/2,W*.58)),ty=ym+50;V={ym,yb:ey+30+th+44,ex,ey,tl:ex-tw/2,tt:ey+30,br:'M'+(ax+6)+' '+ym+'V'+(ym+20)+'C'+(ax+6)+' '+(ym+44)+' '+(ax+24)+' '+ty+' '+(ax+48)+' '+ty+'H'+(ex-26)+'C'+(ex-8)+' '+ty+' '+ex+' '+(ty+8)+' '+ex+' '+(ty+26)+'V'+ey,ah:'M'+(ex-19)+' '+ey+'L'+ex+' '+(ey+22)+'L'+(ex+19)+' '+ey+'Z'};}
+        }else if(side){const ym=y0+128,ey=ym-66,tl=W-tw,ex=tl-20;V={ym,yb:ym+132,ex,ey,tl,tt:ey-th/2,br:'M'+ex+' '+ey+'H'+(ax+44)+'C'+(ax+28)+' '+ey+' '+(ax+17)+' '+(ey+14)+' '+(ax+17)+' '+(ey+34)+'V'+ym};}
+        else{const tt=y0+26,ey=tt+th+18,ex=Math.max(ax+80,Math.min(W-30,W*.5)),ym=ey+92;V={ym,yb:ym+128,ex,ey,tl:Math.max(0,Math.min(W-tw,ex-20)),tt,br:'M'+ex+' '+ey+'V'+(ey+8)+'C'+ex+' '+(ey+30)+' '+(ex-14)+' '+(ey+38)+' '+(ex-34)+' '+(ey+38)+'H'+(ax+41)+'C'+(ax+25)+' '+(ey+38)+' '+(ax+17)+' '+(ey+46)+' '+(ax+17)+' '+(ey+62)+'V'+ym};}
+        d.style.height=(V.yb+38)+'px';[y0,V.ym,V.yb].forEach((y,i)=>{if(nodes[i]){nodes[i].style.left=ax+'px';nodes[i].style.top=y+'px';}});
+        tags.style.left=(d.offsetLeft+V.tl)+'px';tags.style.top=(d.offsetTop+V.tt)+'px';
+      }else d.style.height='';
+      const H=d.clientHeight;svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML='';
       const x0=W*.07,xm=W*.5,x1=W*.93,Y=55,wide=W>=560,id='skg'+idx;
       const S=!!cc&&cc.dataset.cv==='flow'; // "flow" look: grey ribbon that loses a paler branch / brand ribbon that gains a light-blue one; a soft wave of light runs along them
       const c1=S?(good?'#c3d6fb':'#e6eaf1'):(good?'#A9C4F7':'#f1c5c5'),c2=S?(good?'#2F63D2':'#b4bdcc'):(good?'#2F63D2':'#d98c8c'),soft=S?(good?'#9fbdf7':'#d2d8e2'):(good?'#7ea6f3':'#e7aeae');
-      const defs=mk('defs',{},svg),g=mk('linearGradient',{id,gradientUnits:'userSpaceOnUse',x1:x0,y1:0,x2:xm,y2:0},defs);mk('stop',{offset:0,'stop-color':c1},g);mk('stop',{offset:1,'stop-color':c2},g);
+      const defs=mk('defs',{},svg),g=mk('linearGradient',vert?{id,gradientUnits:'userSpaceOnUse',x1:0,y1:y0,x2:0,y2:V.ym}:{id,gradientUnits:'userSpaceOnUse',x1:x0,y1:0,x2:xm,y2:0},defs);mk('stop',{offset:0,'stop-color':c1},g);mk('stop',{offset:1,'stop-color':c2},g);
       if(S)[['a','22 4'],['b','12 2.5']].forEach(([k,sd])=>{const f=mk('filter',{id:id+'f'+k,filterUnits:'userSpaceOnUse',x:0,y:0,width:W,height:H},defs);mk('feGaussianBlur',{stdDeviation:sd},f)});
       // first look: thin dashes inside the ribbon; "flow" look: one blurred highlight per path, phase "a" (towards the middle) then "b" (after it)
       const line=(cls,dd,w,stroke)=>mk('path',{class:cls,d:dd,'stroke-width':w,stroke,pathLength:1},svg),flow=(dd,w,ph)=>{if(!S)return mk('path',{class:'fl',d:dd,'stroke-width':w},svg);const ds=w>30?3.8:w>20?3.2:2.4,mid=id+'m'+(mc++);
@@ -2748,6 +2812,15 @@ document.querySelectorAll('.rv,.io,.dash').forEach(el=>io.observe(el));
         const m=mk('mask',{id:mid,maskUnits:'userSpaceOnUse',x:0,y:0,width:W,height:H},defs);mk('path',{class:'fw '+ph,d:dd,'stroke-width':w+6,pathLength:1},m);
         mk('path',{class:'dt lit',d:dd,'stroke-width':ds*1.25,mask:'url(#'+mid+')'},svg);};let mc=0;
       let br,ex,ey;
+      if(vert){const s1='M'+(good?ax-6:ax)+' '+y0+'V'+V.ym;
+        if(!good){const s2='M'+(ax-11)+' '+V.ym+'V'+V.yb; // 34 from above; 12 goes on down, 22 leaves sideways
+          if(S){const g2=mk('linearGradient',{id:id+'t',gradientUnits:'userSpaceOnUse',x1:0,y1:V.ym,x2:0,y2:V.yb},defs);mk('stop',{offset:0,'stop-color':c2},g2);mk('stop',{offset:1,'stop-color':'#e2e6ee'},g2);}
+          line('rb s1',s1,34,'url(#'+id+')');line('rb s2',s2,12,S?'url(#'+id+'t)':c2);line('lk',V.br,22,soft);mk('path',{class:'ah',fill:soft,d:V.ah},svg);
+          flow(s1,34,'a');flow(s2,12,'b');flow(V.br,22,'b');}
+        else{const s2='M'+ax+' '+V.ym+'V'+V.yb; // 34 from above plus 12 joining from the side = 46 going down, centred on the axis
+          line('lk',V.br,12,soft);line('rb s1',s1,34,'url(#'+id+')');line('rb s2',s2,46,c2);mk('circle',{class:'ah',cx:V.ex,cy:V.ey,r:9,fill:'#fff',stroke:soft,'stroke-width':4},svg);
+          flow(V.br,12,'a');flow(s1,34,'a');flow(s2,46,'b');}
+        return;}
       if(!good){ // leak: lower 22px of the ribbon bends away and ends in an arrow at the tags
         if(wide){const a=xm+78;tags.classList.add('abs');ex=Math.max(a+56,Math.min(a+Math.max(110,W*.12),W-tags.offsetWidth-44));ey=168;br='M'+xm+' 61H'+a+'C'+(a+(ex-a)*.55)+' 61 '+(a+(ex-a)*.45)+' '+ey+' '+ex+' '+ey;}
         else{ex=xm+70;ey=150;br='M'+xm+' 61H'+(xm+34)+'C'+(xm+62)+' 61 '+ex+' 78 '+ex+' 104V'+ey;}
@@ -2903,6 +2976,10 @@ const fcards=[...document.querySelectorAll('.fcard')],farrow=document.getElement
 const baIntro=document.getElementById('baIntro'),baIn=document.getElementById('baIn'),baWords=[...document.querySelectorAll('#baH .w')],baLead=baIn.querySelector('p');
 const ba=document.getElementById('ba'),baR=document.getElementById('baRight'),baL=document.getElementById('baLeft');
 const scards=[...document.querySelectorAll('.scard')],media=document.getElementById('media');
+// small screens: each card reports its height, so a tall card can stop when its bottom edge is in view
+if(window.ResizeObserver){const stackEl=document.getElementById('stack'),txts=scards.map(c=>c.querySelector('.txt'));
+  const ro=new ResizeObserver(()=>{if(stackEl)stackEl.style.setProperty('--txh',Math.max(...txts.map(t=>{if(!t)return 0;const sw=t.querySelector('.fx-switch:not([hidden])');return t.offsetHeight-(sw?sw.offsetHeight+14:0)}))+'px');scards.forEach(c=>c.style.setProperty('--ch',c.offsetHeight+'px'))});
+  scards.forEach(c=>ro.observe(c));txts.forEach(t=>t&&ro.observe(t));}
 const finalBg=document.getElementById('finalBg'),finalSec=document.getElementById('final'),finalIn=document.querySelector('#final .final-in');
 const mobile=()=>innerWidth<=860;
 const fillH=[...document.querySelectorAll('h2[data-fill]')].map(el=>({el,w:[...el.querySelectorAll('.t2 .w')],last:-1}));
@@ -2950,7 +3027,7 @@ function frame(){
     baR.style.transform=d>=vh*.02?'none':'translateY('+(-H)+'px) scale(.93) rotate(5deg)';
   }else{baL.parentElement.style.opacity='';[baR,baL].forEach(e=>{e.style.transform='';e.style.opacity='';});}
   // stacked cards depth
-  if(!mobile()){for(let i=0;i<scards.length-1;i++){const cur=scards[i],nxt=scards[i+1];const topN=parseFloat(getComputedStyle(nxt).top);const d=nxt.getBoundingClientRect().top-topN;const k=clamp(1-d/cur.offsetHeight);cur.style.transform='scale('+(1-.05*k)+')';cur.style.filter='brightness('+(1-.08*k)+')';}}
+  {for(let i=0;i<scards.length-1;i++){const cur=scards[i],nxt=scards[i+1];const topN=parseFloat(getComputedStyle(nxt).top);const d=nxt.getBoundingClientRect().top-topN;const k=clamp(1-d/cur.offsetHeight);cur.style.transform='scale('+(1-.05*k)+')';cur.style.filter='brightness('+(1-.08*k)+')';}}
   // growth media scale
 
   // final parallax
