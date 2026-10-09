@@ -796,6 +796,9 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 .bico .i2{fill:var(--ico-acc);stroke:none}
 .bico .i3{fill:var(--ico-fill);stroke:var(--ico-line);stroke-width:var(--ico-w)}
 .bico.sm .i1,.bico.sm .i3{stroke-width:calc(var(--ico-w) + .25)}
+/* cost cards: the same 40px icons as in the other cards, on every screen (were 48px) */
+.cduo .bico{width:40px;height:40px}
+.cduo .bico .i1,.cduo .bico .i3{stroke-width:calc(var(--ico-w) + .25)}
 .bico .i4{fill:none;stroke:var(--ico-fill);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 /* infographic variants (review switch) */
 .cost-h{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -1069,7 +1072,7 @@ h2[data-fill] .t2 .w{color:color-mix(in srgb,var(--acc) calc(var(--f,0) * 100%),
 .nccard.w .muted{color:var(--ink-2)}
 .nccard.w .micro{color:var(--acc)}
 .nccard h3{margin-top:28px;font-size:clamp(26px,2.3vw,34px)}
-.nccard p{margin-top:14px}
+.nccard p{margin-top:14px;margin-bottom:22px} /* the bottom margin keeps the text off the divider when a card has no spare height */
 .nccard .ok{margin-top:auto;padding-top:26px;display:flex;gap:12px;align-items:flex-start;font:600 14px/1.45 var(--font);letter-spacing:-.02em;border-top:1px solid rgba(255,255,255,.25)}
 .nccard.w .ok{border-color:var(--line)}
 .nccard .ok i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--acc-soft)}
@@ -1678,22 +1681,41 @@ body{font-size:var(--fs-body)}
   .fcard{min-height:0;padding:20px}
   .fcard .txt,.fcard .tags{padding-top:12px}
   .statement{padding:0 20px}
-  .shead,.ba-cards,.nc-cards,.wl,.cost-duo,.final .final-in{grid-template-columns:1fr}
+  .shead,.wl,.final .final-in{grid-template-columns:1fr}
+  /* the two security cards stay in one row from 768px up, one under the other below that */
+  .nccard{padding:28px}
+  @media (max-width:767px){.nc-cards{grid-template-columns:1fr}}
+  /* the two cost cards stay side by side from 768px up, one under the other below that */
+  .cduo{padding:28px}
+  @media (max-width:767px){.cost-duo{grid-template-columns:1fr}}
   .section.sec-intro{padding-top:clamp(90px,calc(50vh - 174px),300px)}
   .sec-head{margin-top:72px;gap:20px}
-  .sec-feats{margin-top:32px}
-  .sgrid{grid-template-columns:minmax(0,1fr);border-radius:24px}
+  .sec-feats{margin-top:56px} /* tablets: more air under the heading with the shield (was 32px) */
+  @media (max-width:767px){.sec-feats{margin-top:32px}}
+  /* security list: two columns from 768px up, one column below */
+  .sgrid{border-radius:24px}
+  @media (max-width:767px){.sgrid{grid-template-columns:minmax(0,1fr)}}
   .sfeat{grid-template-columns:32px minmax(0,1fr);column-gap:16px;align-items:start;padding:20px}
   /* security list: smaller icons than the card standard (was 40px) */
   .sfeat .bico.sm{width:32px;height:32px}
-  /* shield centred (left-aligned placement kept, off: justify-content:flex-start; img margin:-10px 0 0 -10px) */
+  /* security heading from 768px up: shield on the left, text on the right, as on wide screens */
+  .sec-head{grid-template-columns:.62fr 1.38fr;gap:28px}
+  .sec-art{--sw:182px;--sx:4%}
+  /* below 768px: shield centred above the text (left-aligned placement kept, off: justify-content:flex-start; img margin:-10px 0 0 -10px) */
+  @media (max-width:767px){
+  .sec-head{grid-template-columns:1fr}
   .sec-art{--sw:144px;--sx:0px;justify-content:center}
   .sec-art img{margin:-10px 0 0}
+  }
   .sec-vsw{top:-70px}
   .cost-card{padding:24px 16px}
-  .exec-cards,.gro-row{grid-template-columns:1fr}
+  .gro-row{grid-template-columns:1fr}
   .gro-row > div{border-left:0;border-top:1px solid var(--line)}
   .gro-row > div:first-child{border-top:0}
+  /* before/after cards: from 768px up they behave as on wide screens (pinned, parting to the left and right);
+     below that they come in as a stack and the second card slides down */
+  @media (max-width:767px){
+  .ba-cards{grid-template-columns:1fr}
   .ba{height:auto}
   .ba-sticky{position:static;height:auto;padding:0 0 90px}
   .ba-intro{height:200vh}
@@ -1701,8 +1723,14 @@ body{font-size:var(--fs-body)}
   .ba{margin-top:calc(-54vh - var(--bah,260px))}
   /* once the stack is in place the second card slides down from behind the first one into its own place; from there both cards scroll as usual */
   .ba-cards .bcard.after{transition:transform 1s var(--ease)}
-  .ba-intro h2 .l2{padding-left:0}
   .bcard{min-height:0}
+  }
+  .ba-intro h2 .l2{padding-left:0}
+  /* revenue cards from 768px up: text on the left, illustration on the right, stacking as on wide screens (a little lower and tighter than there) */
+  .scard{height:min(500px,74vh);top:calc(84px + var(--i) * 14px)}
+  .scard .txt{padding:26px}
+  /* below 768px: one column, the text and its illustration in a single card */
+  @media (max-width:767px){
   /* the cards gather into a deck while scrolling, as on wide screens. Each card stops under the header, a little lower than the previous one;
      a card taller than the screen stops only when its bottom edge is in view (--ch: card height, set by the script).
      Plain list without the deck: position:relative;top:0 */
@@ -1720,6 +1748,7 @@ body{font-size:var(--fs-body)}
   .scard .ph-ramp .wg{font-size:min(3cqw,3.08cqh)}
   .scard .ph-flow .fc{font-size:min(3cqw,3.1cqh)}
   .fx-switch{margin-top:20px}
+  }
   /* launch steps on small screens: no pinned screen and no switching. Each step is its text followed by its own illustration.
      (The pinned, scroll-driven version stays for wide screens; removing this group brings it back here too.) */
   .jr{display:flex;flex-direction:column;gap:14px}
@@ -1740,7 +1769,7 @@ body{font-size:var(--fs-body)}
   .track{grid-template-columns:1fr;gap:8px}
   .track::before,.track .fill{display:none}
   .gro-bento{grid-template-columns:minmax(0,1fr);margin-top:40px}
-  .gro-list{display:flex}
+  @media (max-width:767px){.gro-list{display:flex}}
   .gro-dash .dash .chart{min-height:150px}
   .gro-item{padding:20px;grid-template-columns:44px minmax(0,1fr);gap:14px}
   .gro-dash{padding:16px;border-radius:24px}
@@ -1851,7 +1880,7 @@ body{font-size:var(--fs-body)}
   .panel{padding:60px 0}
   .panel .wrap{width:calc(100% - 24px)}
   .rev-head p,.ba-intro p{margin-top:24px}
-  .exec-cards{margin-top:40px;gap:var(--m-gap)}
+  .exec-cards{grid-template-columns:1fr;margin-top:40px;gap:var(--m-gap)}
   .ecard{padding:var(--m-pad);min-height:0}
   .ecard .h-sm{padding-top:var(--m-head)}
   .ba-sticky{padding-bottom:56px}
@@ -1885,6 +1914,7 @@ body{font-size:var(--fs-body)}
   .nc-cards{margin-top:36px;gap:var(--m-gap)}
   .nccard{padding:var(--m-pad);min-height:0}
   .nccard h3{margin-top:var(--m-head)}
+  .nccard p{margin-bottom:0}
   .nccard .ok{margin-top:22px;padding-top:18px}
   .sec-head{margin-top:48px}
   .sfeat{padding:var(--m-pad);grid-template-columns:32px minmax(0,1fr);column-gap:14px}
@@ -2798,9 +2828,11 @@ document.querySelectorAll('.rv,.io,.dash').forEach(el=>io.observe(el));
         else{const tt=y0+26,ey=tt+th+18,ex=Math.max(ax+80,Math.min(W-30,W*.5)),ym=ey+92;V={ym,yb:ym+128,ex,ey,tl:Math.max(0,Math.min(W-tw,ex-20)),tt,br:'M'+ex+' '+ey+'V'+(ey+8)+'C'+ex+' '+(ey+30)+' '+(ex-14)+' '+(ey+38)+' '+(ex-34)+' '+(ey+38)+'H'+(ax+41)+'C'+(ax+25)+' '+(ey+38)+' '+(ax+17)+' '+(ey+46)+' '+(ax+17)+' '+(ey+62)+'V'+ym};}
         d.style.height=(V.yb+38)+'px';[y0,V.ym,V.yb].forEach((y,i)=>{if(nodes[i]){nodes[i].style.left=ax+'px';nodes[i].style.top=y+'px';}});
         tags.style.left=(d.offsetLeft+V.tl)+'px';tags.style.top=(d.offsetTop+V.tt)+'px';
-      }else d.style.height='';
+      }else{d.style.height='';
+        // tablets: the wide layout (tags beside the side branch) needs more height than the compact block gives it
+        if(W>=650&&d.clientHeight<214)d.style.height='228px';}
       const H=d.clientHeight;svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML='';
-      const x0=W*.07,xm=W*.5,x1=W*.93,Y=55,wide=W>=560,id='skg'+idx;
+      const x0=W*.07,xm=W*.5,x1=W*.93,Y=55,wide=W>=650,id='skg'+idx;
       const S=!!cc&&cc.dataset.cv==='flow'; // "flow" look: grey ribbon that loses a paler branch / brand ribbon that gains a light-blue one; a soft wave of light runs along them
       const c1=S?(good?'#c3d6fb':'#e6eaf1'):(good?'#A9C4F7':'#f1c5c5'),c2=S?(good?'#2F63D2':'#b4bdcc'):(good?'#2F63D2':'#d98c8c'),soft=S?(good?'#9fbdf7':'#d2d8e2'):(good?'#7ea6f3':'#e7aeae');
       const defs=mk('defs',{},svg),g=mk('linearGradient',vert?{id,gradientUnits:'userSpaceOnUse',x1:0,y1:y0,x2:0,y2:V.ym}:{id,gradientUnits:'userSpaceOnUse',x1:x0,y1:0,x2:xm,y2:0},defs);mk('stop',{offset:0,'stop-color':c1},g);mk('stop',{offset:1,'stop-color':c2},g);
@@ -2822,7 +2854,7 @@ document.querySelectorAll('.rv,.io,.dash').forEach(el=>io.observe(el));
           flow(V.br,12,'a');flow(s1,34,'a');flow(s2,46,'b');}
         return;}
       if(!good){ // leak: lower 22px of the ribbon bends away and ends in an arrow at the tags
-        if(wide){const a=xm+78;tags.classList.add('abs');ex=Math.max(a+56,Math.min(a+Math.max(110,W*.12),W-tags.offsetWidth-44));ey=168;br='M'+xm+' 61H'+a+'C'+(a+(ex-a)*.55)+' 61 '+(a+(ex-a)*.45)+' '+ey+' '+ex+' '+ey;}
+        if(wide){const a=xm+78;tags.classList.add('abs');ex=Math.max(a+40,Math.min(a+Math.max(110,W*.12),W-tags.offsetWidth-44));ey=168;br='M'+xm+' 61H'+a+'C'+(a+(ex-a)*.55)+' 61 '+(a+(ex-a)*.45)+' '+ey+' '+ex+' '+ey;}
         else{ex=xm+70;ey=150;br='M'+xm+' 61H'+(xm+34)+'C'+(xm+62)+' 61 '+ex+' 78 '+ex+' 104V'+ey;}
         const s1='M'+x0+' '+Y+'H'+xm,s2='M'+xm+' 44H'+x1;
         if(S){const g2=mk('linearGradient',{id:id+'t',gradientUnits:'userSpaceOnUse',x1:xm,y1:0,x2:x1,y2:0},defs);mk('stop',{offset:0,'stop-color':c2},g2);mk('stop',{offset:1,'stop-color':'#e2e6ee'},g2);}
@@ -2831,7 +2863,7 @@ document.querySelectorAll('.rv,.io,.dash').forEach(el=>io.observe(el));
         flow(s1,34,'a');flow(s2,12,'b');flow(br,22,'b');
         if(wide){tags.classList.add('abs');tags.style.left=(d.offsetLeft+ex+34)+'px';tags.style.top=(d.offsetTop+ey)+'px';}else{tags.classList.remove('abs');tags.style.left=tags.style.top='';}
       }else{ // gain: an extra 12px ribbon joins under the main one, which continues 46px wide
-        if(wide){const a=xm-82;tags.classList.add('abs');ex=Math.min(a-56,Math.max(a-Math.max(110,W*.12),tags.offsetWidth+30));ey=168;br='M'+ex+' '+ey+'C'+(ex+(a-ex)*.55)+' '+ey+' '+(ex+(a-ex)*.45)+' 78 '+a+' 78H'+xm;}
+        if(wide){const a=xm-82;tags.classList.add('abs');ex=Math.min(a-40,Math.max(a-Math.max(110,W*.12),tags.offsetWidth+30));ey=168;br='M'+ex+' '+ey+'C'+(ex+(a-ex)*.55)+' '+ey+' '+(ex+(a-ex)*.45)+' 78 '+a+' 78H'+xm;}
         else{ex=xm-70;ey=170;br='M'+ex+' '+ey+'V118C'+ex+' 92 '+(xm-62)+' 78 '+(xm-34)+' 78H'+xm;}
         const s1='M'+x0+' '+Y+'H'+xm,s2='M'+xm+' 61H'+x1;
         line('lk',br,12,soft);line('rb s1',s1,34,'url(#'+id+')');line('rb s2',s2,46,c2);
@@ -3013,8 +3045,8 @@ function frame(){
     baWords.forEach((w,k)=>{const a=seg(ip,.02+k*(.36/N),.02+(k+1.8)*(.36/N));w.style.opacity=(.12+.88*a).toFixed(3);});
     baLead.style.opacity=ease(seg(ip,.34,.44)).toFixed(3);
     const o0=seg(ip,.69,.86),out=o0*o0*(3-2*o0);baIn.style.opacity=(1-out).toFixed(3);baIn.style.filter=out>0.001?'blur('+(out*14).toFixed(1)+'px)':'';baIn.style.transform=out>0.001?'translateY('+(-out*50).toFixed(1)+'px) scale('+(1-.06*out).toFixed(4)+')':'';}
-  // before/after cards: appear stacked (left in front) -> split apart (scroll-linked)
-  if(!mobile()){
+  // before/after cards: appear stacked (left in front) -> split apart (scroll-linked); from 768px up, the stack-and-slide version below that
+  if(innerWidth>=768){
     const br=ba.getBoundingClientRect();const q=RM?1:clamp(-br.top/(ba.offsetHeight-vh),-.35,1);
     const s1=ease(seg(q,.12,.3)),s2=ease(seg(q,.34,.72));const half=(baL.offsetWidth+16)/2;
     baL.parentElement.style.opacity=s1;baL.style.opacity='';baL.style.transform='translate('+(half*(1-s2))+'px,0) scale('+(.9+.1*s1)+')';
